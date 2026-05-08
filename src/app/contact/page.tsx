@@ -76,11 +76,42 @@ export default function ContactPage() {
                 </div>
               </StaggerItem>
               <StaggerItem>
-                <div className="glass-card p-4 h-[250px] flex items-center justify-center">
-                  <div className="text-center text-slate-400">
-                    <FontAwesomeIcon icon={faMapMarkerAlt} size="2x" className="text-[var(--accent)] mb-3" />
-                    <p className="text-slate-600">Find us on Google Maps</p>
-                    <p className="text-sm">6777 Winchester Rd &bull; 4224 Summer Ave</p>
+                <div className="glass-card p-4">
+                  <h3 className="text-slate-800 font-semibold text-sm mb-2 flex items-center gap-1.5">
+                    <FontAwesomeIcon icon={faMapMarkerAlt} className="text-[var(--accent)]" />
+                    Winchester
+                  </h3>
+                  <div className="rounded-xl overflow-hidden h-[200px] border border-slate-200">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1633.1624023780382!2d-89.83736145!3d35.0486177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x887f9aa4bc696b2d%3A0x49a8e29f1784842b!2s6777%20Winchester%20Rd%2C%20Memphis%2C%20TN%2038115%2C%20USA!5e0!3m2!1sen!2sph!4v1752691084913!5m2!1sen!2sph"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="BSW Outlet Winchester map"
+                    />
+                  </div>
+                </div>
+              </StaggerItem>
+              <StaggerItem>
+                <div className="glass-card p-4">
+                  <h3 className="text-slate-800 font-semibold text-sm mb-2 flex items-center gap-1.5">
+                    <FontAwesomeIcon icon={faMapMarkerAlt} className="text-[var(--accent)]" />
+                    Summer Ave
+                  </h3>
+                  <div className="rounded-xl overflow-hidden h-[200px] border border-slate-200">
+                    <iframe
+                      src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3262.249266589289!2d-89.9247920074389!3d35.15040368873177!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x887f83ddc39f080d%3A0x28aa6d79989e56de!2s4224%20Summer%20Ave%2C%20Memphis%2C%20TN%2038122!5e0!3m2!1sen!2sus!4v1757355813833!5m2!1sen!2sus"
+                      width="100%"
+                      height="100%"
+                      style={{ border: 0 }}
+                      allowFullScreen
+                      loading="lazy"
+                      referrerPolicy="no-referrer-when-downgrade"
+                      title="BSW Outlet Summer Ave map"
+                    />
                   </div>
                 </div>
               </StaggerItem>
