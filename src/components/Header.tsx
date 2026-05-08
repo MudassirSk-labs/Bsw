@@ -32,9 +32,10 @@ export default function Header() {
   useEffect(() => {
     const now = new Date();
     const dayKey = dayKeys[now.getDay()]; // "sunday"... "saturday"
+    const shortKey = dayKey === "thursday" ? "thu" : dayKey.substring(0, 3);
     const dayLabel = t(`header.notification.${dayKey}`);
-    const price = t(`header.notification.prices.${dayKey === "thursday" ? "thu" : dayKey.substring(0, 3)}`);
-    const emoji = t(`header.notification.emojis.${dayKey === "thursday" ? "thu" : dayKey.substring(0, 3)}`);
+    const price = t(`header.notification.prices.${shortKey}`);
+    const emoji = t(`header.notification.emojis.${shortKey}`);
     const prefix = t("header.notification.prefix");
     const everything = t("header.notification.everything");
     const open = t("header.notification.open");
@@ -100,8 +101,8 @@ export default function Header() {
                     href={link.href}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? "glass text-slate-800"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
+                        ? "bg-[var(--blue)] text-white shadow-sm"
+                        : "text-slate-600 hover:text-[var(--blue)] hover:bg-blue-50"
                     }`}
                   >
                     <FontAwesomeIcon icon={link.icon} className="mr-2" />
@@ -150,8 +151,8 @@ export default function Header() {
                     onClick={() => setMobileOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                       isActive
-                        ? "glass text-slate-800"
-                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
+                        ? "bg-[var(--blue)] text-white"
+                        : "text-slate-600 hover:text-[var(--blue)] hover:bg-blue-50"
                     }`}
                   >
                     <FontAwesomeIcon icon={link.icon} className="w-5" />

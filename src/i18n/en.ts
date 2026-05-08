@@ -96,8 +96,11 @@ const en = {
       subtitle: "Don't take our word for it.",
       items: [
         { name: "Rodney Lyte", text: "Very nice things and very friendly staff. I really enjoyed myself shopping there.", platform: "Google" },
-        { name: "Sarah M.", text: "Best bin store in Memphis! Found amazing deals on electronics and home goods.", platform: "Google" },
-        { name: "James K.", text: "The Tuesday $2 deals are crazy. Always find something worth way more.", platform: "Google" },
+        { name: "Patricia Dockery", text: "The Best discount store in the world BSW outlet 6777 Winchester & great people.", platform: "Google" },
+        { name: "Tewanda Williams", text: "This place is awesome, a lot of fun for the whole family and cheap deals.", platform: "Google" },
+        { name: "Antonio Smith", text: "Hands down the best bin store in Memphis and surrounding areas!", platform: "Google" },
+        { name: "Elizabeth Blaylock", text: "Very well stocked, upbeat and fun staff and lots of reasonable merchandise options.", platform: "Google" },
+        { name: "Yulissa Munguia", text: "Very Good Place and Very Kind People.", platform: "Google" },
       ],
     },
     cta: {

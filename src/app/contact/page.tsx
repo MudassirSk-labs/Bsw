@@ -41,7 +41,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="text-slate-800 font-semibold">BSW Outlet – Winchester</h3>
-                        <a href="https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[var(--accent)] transition-colors">6777 Winchester Rd, Memphis, TN 38115</a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=6777+Winchester+Rd,+Memphis,+TN+38115" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[var(--accent)] transition-colors">6777 Winchester Rd, Memphis, TN 38115</a>
                       </div>
                     </div>
                     <div className="flex items-start gap-4">
@@ -50,7 +50,7 @@ export default function ContactPage() {
                       </div>
                       <div>
                         <h3 className="text-slate-800 font-semibold">BSW Outlet – Summer Ave</h3>
-                        <a href="https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[var(--accent)] transition-colors">4224 Summer Ave, Memphis, TN 38122</a>
+                        <a href="https://www.google.com/maps/dir/?api=1&destination=4224+Summer+Ave,+Memphis,+TN+38122" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[var(--accent)] transition-colors">4224 Summer Ave, Memphis, TN 38122</a>
                       </div>
                     </div>
                     <div className="flex items-center gap-4">
@@ -70,7 +70,7 @@ export default function ContactPage() {
                         <h3 className="text-slate-800 font-semibold">Store Hours</h3>
                         <div className="text-slate-500 space-y-1 mt-1">
                           <p>Mon – Wed: 10AM – 7PM</p>
-                          <p className="text-[var(--accent)] font-medium">$10 Thursdays!</p>
+                          <p className="text-[var(--blue)] font-medium">$10 Thursdays! (10AM – 7PM)</p>
                           <p>Fri – Sun: 10AM – 7PM</p>
                         </div>
                       </div>

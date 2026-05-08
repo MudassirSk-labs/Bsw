@@ -44,7 +44,7 @@ export default function Footer() {
               <div>
                 <p className="text-slate-700 font-medium">Winchester</p>
                 <a
-                  href="https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/"
+                  href="https://www.google.com/maps/dir/?api=1&destination=6777+Winchester+Rd,+Memphis,+TN+38115"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-500 hover:text-[var(--accent)] transition-colors"
@@ -57,7 +57,7 @@ export default function Footer() {
               <div>
                 <p className="text-slate-700 font-medium">Summer Ave</p>
                 <a
-                  href="https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/"
+                  href="https://www.google.com/maps/dir/?api=1&destination=4224+Summer+Ave,+Memphis,+TN+38122"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-slate-500 hover:text-[var(--accent)] transition-colors"
@@ -77,15 +77,15 @@ export default function Footer() {
               {t("footer.hours")}
             </h3>
             <div className="space-y-2 text-sm text-slate-500">
-              <div className="flex justify-between">
+              <div className="flex justify-between gap-2">
                 <span>{t("footer.monWed")}</span>
                 <span className="text-slate-800 font-medium">10AM – 7PM</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between gap-2">
                 <span>{t("footer.thu")}</span>
-                <span className="text-slate-800 font-medium">10AM – 7PM</span>
+                <span className="text-[var(--blue)] font-semibold text-xs">$10 Deal Day!</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between gap-2">
                 <span>{t("footer.friSun")}</span>
                 <span className="text-slate-800 font-medium">10AM – 7PM</span>
               </div>

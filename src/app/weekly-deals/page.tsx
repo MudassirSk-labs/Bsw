@@ -3,21 +3,28 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTag, faMapMarkerAlt, faPhone, faClock, faCalendarDay, faArrowRight, faCrown, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
 import { useT } from "@/i18n/context";
+import { DAY_MAP } from "@/lib/constants";
 
 const schedule = [
-  { day: "Thursday", price: "$10", title: "$10 Thursday", tagline: "New deal day — fresh inventory!", desc: "Thursday is now a deal day! Fresh drops hit the floor with everything in the bins at $10. Best day to catch up on what you missed earlier in the week.", img: "deal-thu.png", active: true },
-  { day: "Friday", price: "$8", title: "$8 Friday", tagline: "Fresh drops. Fresh prices.", desc: "New inventory hits the floor. Great day to shop if you missed the early rush. Everything in bins is just $8.", img: "deal-fri.jpg" },
-  { day: "Saturday", price: "$7", title: "$7 Saturday", tagline: "Our biggest day of the week!", desc: "Brand new inventory drops. If you want first dibs on the best finds, Saturday is it. Doors open at 10AM — line up early!", img: "deal-sat.jpg", active: true },
-  { day: "Sunday", price: "$5", title: "$5 Sunday", tagline: "Weekend steals continue!", desc: "Everything in the bins? Just $5. Come wrap up your weekend with some incredible finds before Monday's reset.", img: "deal-sun.jpg" },
-  { day: "Monday", price: "$3", title: "Mystery Monday", tagline: "You never know what you'll find.", desc: "Fresh surprises. Wild finds. Mystery Mondays hit different. Everything in the bins is just $3 — come ready to hunt.", img: "deal-mon.jpg" },
-  { day: "Tuesday", price: "$2", title: "$2 Tuesday", tagline: "The bin hunt begins.", desc: "Get here early and dig for gold. At $2, everything in the bins is a steal. Our regulars know Tuesday is prime hunting day.", img: "deal-tue.jpg" },
-  { day: "Wednesday", price: "$1", title: "$1 Wednesday", tagline: "Last chance before reset.", desc: "Everything left drops to just $1. Unreal value. Come grab whatever's left before we clear the bins for restock.", img: "deal-wed.jpg" },
+  { key: "thu", day: "Thursday", price: "$10", title: "$10 Thursday", tagline: "New deal day — fresh inventory!", desc: "Thursday is a deal day! Fresh drops hit the floor with everything in the bins at $10. Best day to catch up on what you missed.", img: "deal-thu.png" },
+  { key: "fri", day: "Friday", price: "$8", title: "$8 Friday", tagline: "Fresh drops. Fresh prices.", desc: "New inventory hits the floor. Great day to shop if you missed the early rush. Everything in bins is just $8.", img: "deal-fri.jpg" },
+  { key: "sat", day: "Saturday", price: "$7", title: "$7 Saturday", tagline: "Our biggest day of the week!", desc: "Brand new inventory drops. If you want first dibs on the best finds, Saturday is it. Doors open at 10AM — line up early!", img: "deal-sat.jpg" },
+  { key: "sun", day: "Sunday", price: "$5", title: "$5 Sunday", tagline: "Weekend steals continue!", desc: "Everything in the bins? Just $5. Come wrap up your weekend with some incredible finds before Monday's reset.", img: "deal-sun.jpg" },
+  { key: "mon", day: "Monday", price: "$3", title: "Mystery Monday", tagline: "You never know what you'll find.", desc: "Fresh surprises. Wild finds. Mystery Mondays hit different. Everything in the bins is just $3 — come ready to hunt.", img: "deal-mon.jpg" },
+  { key: "tue", day: "Tuesday", price: "$2", title: "$2 Tuesday", tagline: "The bin hunt begins.", desc: "Get here early and dig for gold. At $2, everything in the bins is a steal. Our regulars know Tuesday is prime hunting day.", img: "deal-tue.jpg" },
+  { key: "wed", day: "Wednesday", price: "$1", title: "$1 Wednesday", tagline: "Last chance before reset.", desc: "Everything left drops to just $1. Unreal value. Come grab whatever's left before we clear the bins for restock.", img: "deal-wed.jpg" },
 ];
 
 export default function WeeklyDealsPage() {
   const t = useT();
+  const [todayKey, setTodayKey] = useState<string | null>(null);
+
+  useEffect(() => {
+    setTodayKey(DAY_MAP[new Date().getDay()]);
+  }, []);
   return (
     <div className="relative">
       <div className="orb w-[500px] h-[500px] bg-[#e63946] -top-40 -left-40" />
@@ -40,21 +47,26 @@ export default function WeeklyDealsPage() {
       <section className="relative py-20 bg-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6" staggerDelay={0.06}>
-            {schedule.map((item, i) => (
+            {schedule.map((item, i) => {
+              const isToday = todayKey === item.key;
+              return (
               <StaggerItem key={i}>
-                <div className={`glass-card p-6 md:p-8 relative overflow-hidden ${item.active ? "ring-2 ring-[var(--accent)]" : ""}`}>
-                  {item.active && <div className="absolute top-4 right-4 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full">TODAY</div>}
+                <div className={`glass-card p-6 md:p-8 relative overflow-hidden ${isToday ? "ring-2 ring-[var(--blue)] shadow-lg" : ""}`}>
+                  {isToday && (
+                    <div className="absolute top-4 right-4 bg-[var(--blue)] text-white text-xs font-bold px-3 py-1 rounded-full shadow">TODAY</div>
+                  )}
                   <div className="overflow-hidden rounded-lg h-28 md:h-32 mb-4 -mx-2 -mt-2">
                     <img src={`/images/${item.img}`} alt={item.day} className="w-full h-full object-cover" />
                   </div>
-                  <div className={`text-3xl font-bold mb-1 ${item.price === "Closed" ? "text-slate-400" : "text-gradient"}`}>{item.price}</div>
+                  <div className="text-3xl font-bold mb-1 text-gradient">{item.price}</div>
                   <div className="text-sm text-slate-400 uppercase tracking-wider mb-1">{item.day}</div>
                   <h3 className="text-slate-800 font-bold text-xl mb-2">{item.title}</h3>
-                  <p className="text-[var(--accent)] font-medium text-sm mb-3 italic">{item.tagline}</p>
+                  <p className="text-[var(--blue)] font-medium text-sm mb-3 italic">{item.tagline}</p>
                   <p className="text-slate-500 text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </StaggerItem>
-            ))}
+            );
+            })}
           </StaggerContainer>
         </div>
       </section>

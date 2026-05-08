@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --accent: #e63946;
-  --accent-dark: #c1121f;
-  --accent-gold: #f4a261;
+  --accent: #F24F26;
+  --accent-dark: #d63b1a;
+  --accent-gold: #FECD07;
   --blue: #253998;
   --blue-light: #3b5bdb;
 }
@@ -91,14 +91,14 @@ body {
 
 /* ===== Text effects ===== */
 .text-gradient {
-  background: linear-gradient(135deg, #e63946 0%, #253998 100%);
+  background: linear-gradient(135deg, #F24F26 0%, #253998 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .text-gradient-warm {
-  background: linear-gradient(135deg, #f4a261 0%, #e63946 50%, #253998 100%);
+  background: linear-gradient(135deg, #FECD07 0%, #F24F26 50%, #253998 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -109,7 +109,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: linear-gradient(135deg, #e63946, #c1121f);
+  background: linear-gradient(135deg, #253998, #3b5bdb);
   color: white;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
@@ -122,7 +122,7 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
+  box-shadow: 0 10px 30px rgba(37, 57, 152, 0.35);
 }
 
 .btn-glass {

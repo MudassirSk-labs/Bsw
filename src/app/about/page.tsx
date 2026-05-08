@@ -100,9 +100,9 @@ export default function AboutPage() {
           <FadeInView delay={0.2}>
             <div className="glass-card p-10 text-center">
               <img
-                src="/images/abraham.jpg"
+                src="/images/abraham-hamed.jpg"
                 alt="Abraham Hamed - Store Manager"
-                className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-slate-100 shadow-lg"
+                className="w-36 h-36 rounded-full object-cover mx-auto mb-4 border-4 border-[var(--blue)] shadow-xl"
               />
               <h3 className="text-2xl font-bold text-slate-800 mb-1">{t("about.team.name")}</h3>
               <p className="text-[var(--accent)] font-medium mb-4">Store Manager &amp; Local Legend</p>

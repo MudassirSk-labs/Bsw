@@ -20,11 +20,12 @@ import { useEffect, useState } from "react";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
 import NewsletterSection from "@/components/NewsletterSection";
 import { useT } from "@/i18n/context";
+import { DAY_MAP } from "@/lib/constants";
 
 const schedule = [
-  { key: "thu", price: "$10", img: "deal-thu.png", active: true },
+  { key: "thu", price: "$10", img: "deal-thu.png" },
   { key: "fri", price: "$8", img: "deal-fri.jpg" },
-  { key: "sat", price: "$7", img: "deal-sat.jpg", active: true },
+  { key: "sat", price: "$7", img: "deal-sat.jpg" },
   { key: "sun", price: "$5", img: "deal-sun.jpg" },
   { key: "mon", price: "$3", img: "deal-mon.jpg" },
   { key: "tue", price: "$2", img: "deal-tue.jpg" },
@@ -37,16 +38,21 @@ const dayNames: Record<string, string> = {
 };
 
 const testimonials = [
-  { name: "Rodney Lyte", rating: 5, text: "Very nice things and very friendly staff. I really enjoyed myself shopping there.", platform: "Google" },
-  { name: "Sarah M.", rating: 5, text: "Best bin store in Memphis! Found amazing deals on electronics and home goods.", platform: "Google" },
-  { name: "James K.", rating: 5, text: "The Tuesday $2 deals are crazy. Always find something worth way more.", platform: "Google" },
+  { name: "Rodney Lyte", rating: 5, platform: "Google" },
+  { name: "Patricia Dockery", rating: 5, platform: "Google" },
+  { name: "Tewanda Williams", rating: 5, platform: "Google" },
+  { name: "Antonio Smith", rating: 5, platform: "Google" },
+  { name: "Elizabeth Blaylock", rating: 5, platform: "Google" },
+  { name: "Yulissa Munguia", rating: 5, platform: "Google" },
 ];
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [todayKey, setTodayKey] = useState<string | null>(null);
   const t = useT();
 
   useEffect(() => {
+    setTodayKey(DAY_MAP[new Date().getDay()]);
     const interval = setInterval(() => {
       setActiveIndex((i) => (i + 1) % testimonials.length);
     }, 5000);
@@ -134,19 +140,27 @@ export default function HomePage() {
             </div>
           </FadeInView>
           <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4" staggerDelay={0.06}>
-            {schedule.map((item, i) => (
+            {schedule.map((item, i) => {
+              const isToday = todayKey === item.key;
+              return (
               <StaggerItem key={i}>
-                <div className={`glass-card p-4 md:p-6 text-center ${item.active ? "ring-2 ring-[var(--accent)]" : ""}`}>
+                <div className={`glass-card p-4 md:p-6 text-center relative ${isToday ? "ring-2 ring-[var(--blue)]" : ""}`}>
+                  {isToday && (
+                    <div className="absolute -top-2 left-1/2 -translate-x-1/2 bg-[var(--blue)] text-white text-[10px] font-bold px-3 py-0.5 rounded-full shadow">
+                      TODAY
+                    </div>
+                  )}
                   <div className="overflow-hidden rounded-lg mb-3 -mx-1 -mt-1">
                     <img src={`/images/${item.img}`} alt={dayNames[item.key]} className="w-full h-auto object-contain" />
                   </div>
-                  <div className={`text-2xl md:text-3xl font-bold mb-1 ${item.price === "Closed" ? "text-slate-400" : "text-gradient"}`}>{item.price}</div>
+                  <div className="text-2xl md:text-3xl font-bold mb-1 text-gradient">{item.price}</div>
                   <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider mb-1">{t(`days.${dayNames[item.key].toLowerCase()}`)}</div>
                   <h3 className="text-slate-800 font-semibold text-sm md:text-lg mb-1 md:mb-2">{sch(`${item.key}.name`)}</h3>
                   <p className="text-slate-500 text-xs md:text-sm leading-relaxed">{sch(`${item.key}.desc`)}</p>
                 </div>
               </StaggerItem>
-            ))}
+            );
+            })}
           </StaggerContainer>
         </div>
       </section>
@@ -246,7 +260,7 @@ export default function HomePage() {
                     <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0"><FontAwesomeIcon icon={faMapMarkerAlt} size="lg" /></div>
                     <div>
                       <h3 className="text-slate-800 font-bold text-xl mb-2">{loc.title}</h3>
-                      <a href="https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[var(--accent)] transition-colors"><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-[var(--accent)]" />{loc.addr}</a>
+                      <a href="https://www.google.com/maps/dir/?api=1&destination=BSW+Outlet+Memphis+TN" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[var(--accent)] transition-colors"><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-[var(--accent)]" />{loc.addr}</a>
                     </div>
                   </div>
                 </div>
@@ -308,17 +322,32 @@ export default function HomePage() {
           </FadeInView>
           <div className="max-w-2xl mx-auto">
             <FadeInView key={activeIndex} delay={0.1}>
-              <div className="glass-card p-8 text-center min-h-[200px]">
-                <div className="text-[var(--accent)] text-lg mb-3">{"★".repeat(testimonials[activeIndex].rating)}{"☆".repeat(5 - testimonials[activeIndex].rating)}</div>
-                <p className="text-slate-700 text-lg mb-6 italic">&ldquo;{t(`home.testimonials.items.${activeIndex}.text`)}&rdquo;</p>
+              <div className="glass-card p-8 text-center min-h-[220px] flex flex-col items-center justify-center">
+                <div className="flex gap-1 mb-4">
+                  {Array.from({ length: testimonials[activeIndex].rating }).map((_, s) => (
+                    <svg key={s} className="w-5 h-5 text-[var(--accent-gold)] fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                  ))}
+                </div>
+                <p className="text-slate-700 text-lg mb-6 italic leading-relaxed">&ldquo;{t(`home.testimonials.items.${activeIndex}.text`)}&rdquo;</p>
                 <p className="text-slate-800 font-semibold">{t(`home.testimonials.items.${activeIndex}.name`)}</p>
-                <p className="text-slate-400 text-sm">{testimonials[activeIndex].platform}</p>
+                <p className="text-slate-400 text-sm mt-1">{testimonials[activeIndex].platform} Review ⭐⭐⭐⭐⭐</p>
               </div>
             </FadeInView>
             <div className="flex justify-center gap-2 mt-6">
               {testimonials.map((_, i) => (
-                <button key={i} onClick={() => setActiveIndex(i)} className={`w-3 h-3 rounded-full transition-all ${i === activeIndex ? "bg-[var(--accent)] w-8" : "bg-slate-300 hover:bg-slate-400"}`} aria-label={`Testimonial ${i + 1}`} />
+                <button key={i} onClick={() => setActiveIndex(i)} className={`h-2 rounded-full transition-all duration-300 ${i === activeIndex ? "bg-[var(--blue)] w-8" : "w-2 bg-slate-300 hover:bg-slate-400"}`} aria-label={`Testimonial ${i + 1}`} />
               ))}
+            </div>
+            <div className="mt-8 text-center">
+              <a
+                href="https://www.google.com/search?q=BSW+Outlet+Memphis+reviews"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 text-[var(--blue)] hover:underline text-sm font-medium"
+              >
+                <FontAwesomeIcon icon={faStar} className="text-[var(--accent-gold)]" />
+                Leave Us A Review →
+              </a>
             </div>
           </div>
         </div>
