@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -26,15 +26,37 @@ const navLinks = [
   { href: "/contact", label: "Contact Us", icon: faEnvelope },
 ];
 
+const dailySchedule: Record<string, { price: string; emoji: string }> = {
+  Sunday: { price: "$5", emoji: "🎉" },
+  Monday: { price: "$3", emoji: "🎲" },
+  Tuesday: { price: "$2", emoji: "🔍" },
+  Wednesday: { price: "$1", emoji: "💎" },
+  Thursday: { price: "$10", emoji: "💥" },
+  Friday: { price: "$8", emoji: "🔥" },
+  Saturday: { price: "$7", emoji: "⭐" },
+};
+
+function getTodayMessage(): string {
+  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+  const today = days[new Date().getDay()];
+  const info = dailySchedule[today];
+  return `${info.emoji} Today is ${today}! Everything you find in the bins are ${info.price}. We are open from 10AM to 7PM. BSW — Never Pay Retail Again!`;
+}
+
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [todayMsg, setTodayMsg] = useState("");
   const pathname = usePathname();
+
+  useEffect(() => {
+    setTodayMsg(getTodayMessage());
+  }, []);
 
   return (
     <>
       {/* Notification Bar */}
       <div className="notification-bar">
-        <span>🎉 NEW LOCATION NOW OPEN — 4224 Summer Ave &nbsp;|&nbsp; $10 Thursdays! &nbsp;|&nbsp; BSW OUTLET</span>
+        <span>{todayMsg || "BSW Outlet — Never Pay Retail Again!"}</span>
       </div>
 
       {/* Navbar */}
