@@ -97,7 +97,11 @@ export default function AboutPage() {
           </FadeInView>
           <FadeInView delay={0.2}>
             <div className="glass-card p-10 text-center">
-              <div className="w-24 h-24 rounded-full bg-slate-100 flex items-center justify-center text-3xl mx-auto mb-4">👤</div>
+              <img
+                src="/images/abraham.jpg"
+                alt="Abraham Hamed - Store Manager"
+                className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-slate-100 shadow-lg"
+              />
               <h3 className="text-2xl font-bold text-slate-800 mb-1">Abraham Hamed</h3>
               <p className="text-[var(--accent)] font-medium mb-4">Store Manager &amp; Local Legend</p>
               <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto">
