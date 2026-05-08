@@ -10,6 +10,8 @@ const es: Record<string, any> = {
       weeklyDeals: "Ofertas",
       vip: "Club VIP",
       furniture: "Muebles",
+      faq: "Preguntas",
+      careers: "Empleos",
       contact: "Contacto",
     },
     notification: {
@@ -316,6 +318,62 @@ const es: Record<string, any> = {
     privacy: "Política de Privacidad",
   },
 
+  // ===== FAQ Page =====
+  faq: {
+    hero: {
+      title: "Preguntas",
+      highlight: "Frecuentes",
+      subtitle: "¿Tienes preguntas? Tenemos respuestas — directamente del equipo de BSW Outlet.",
+    },
+    restock: {
+      q: "¿Reabastecen a diario?",
+      a: "¡Absolutamente! Reabastecemos todos los días — ¡y no solo una vez! Nuevos artículos llegan a los contenedores cada 60 minutos, todo el día. Eso significa hallazgos frescos, ofertas sin parar, y ninguna visita es igual.",
+    },
+    products: {
+      q: "¿Qué puedo encontrar aquí?",
+      a: "Tenemos productos que normalmente encontrarías en lugares como Target, Costco, Amazon, Walmart y Kohl's — desde pequeños electrodomésticos y electrónicos hasta artículos para el hogar, juguetes y más. Marcas de calidad, precios increíblemente bajos.",
+    },
+    different: {
+      q: "¿Qué hace diferente a BSW Outlet?",
+      a: "No somos como esas otras tiendas de ofertas. Mantenemos todo limpio, organizado y reabastecido cada hora. No tiramos basura — traemos valor real. Marcas reales. Ofertas reales. Es un nivel completamente diferente en BSW Outlet.",
+    },
+  },
+
+  // ===== Careers Page =====
+  careers: {
+    hero: {
+      title: "Únete a",
+      highlight: "Nuestro Equipo",
+      subtitle: "¡Sé parte de nuestro increíble equipo BSW y empieza a trabajar para la mejor empresa que existe, hoy!",
+    },
+    form: {
+      name: "Nombre Completo",
+      email: "Correo Electrónico",
+      phone: "Teléfono (opcional)",
+      message: "Tu Mensaje",
+      resume: "Sube tu Currículum (.doc, .pdf aceptados)",
+      submit: "Enviar Solicitud",
+      success: "¡Gracias por tu solicitud! Nos pondremos en contacto.",
+    },
+    values: {
+      title: "Lo Que Valoramos",
+      items: [
+        { title: "⚡ Inspirador", desc: "Inspirando a los clientes a no conformarse con precios minoristas." },
+        { title: "⚙️ Disciplinado", desc: "Manteniendo consistencia en nuestras ofertas y servicio cada día." },
+        { title: "🤝 Responsabilidad", desc: "Cumplimos nuestras promesas. Si lo decimos, puedes contar con ello." },
+        { title: "📖 Transparencia", desc: "Sin cargos ocultos. Sin juegos. Solo precios honestos." },
+        { title: "📌 Alineados", desc: "Cada miembro trabajando hacia el mismo objetivo: tus ahorros." },
+        { title: "🎯 Orientado a Resultados", desc: "Medido por las sonrisas y el dinero que ahorras." },
+      ],
+    },
+    cta: {
+      title: "¿Listo para Unirte?",
+      subtitle: "Siempre buscamos personas increíbles. Deja tu currículum y te contactaremos.",
+      btn: "Aplica Ahora",
+    },
+  },
+
+  // ===== Newsletter =====
   newsletter: {
     title: "Mantente al Tanto",
     subtitle: "Recibe notificaciones sobre nuevos lotes, ofertas especiales y ofertas VIP exclusivas.",

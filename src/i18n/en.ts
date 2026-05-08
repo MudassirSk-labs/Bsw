@@ -11,6 +11,8 @@ const en = {
       weeklyDeals: "Weekly Deals",
       vip: "VIP Club",
       furniture: "Furniture",
+      faq: "FAQ",
+      careers: "Careers",
       contact: "Contact Us",
     },
     notification: {
@@ -306,6 +308,61 @@ const en = {
       title: "Stop By Today",
       subtitle: "No appointment needed. Just walk in and start saving.",
       call: "Call",
+    },
+  },
+
+  // ===== FAQ Page =====
+  faq: {
+    hero: {
+      title: "Frequently Asked",
+      highlight: "Questions",
+      subtitle: "Got questions? We've got answers — straight from the BSW Outlet team.",
+    },
+    restock: {
+      q: "Do you restock daily?",
+      a: "Absolutely. We restock every single day — and not just once! New items hit the bins every 60 minutes, all day long. That means fresh finds, nonstop deals, and no two visits are ever the same.",
+    },
+    products: {
+      q: "What can I find here?",
+      a: "We've got products you'd normally find at places like Target, Costco, Amazon, Walmart, and Kohl's — everything from small kitchen appliances and electronics to home goods, toys, and more. Quality brands, crazy low prices.",
+    },
+    different: {
+      q: "What makes BSW Outlet different?",
+      a: "We're nothing like those other bin stores. We keep it clean, organized, and stocked every hour. We don't dump junk — we bring real value. Real brands. Real deals. It's a whole different level at BSW Outlet.",
+    },
+  },
+
+  // ===== Careers Page =====
+  careers: {
+    hero: {
+      title: "Join Our",
+      highlight: "Team!",
+      subtitle: "Become a part of our amazing BSW team and start working for the best company there is, today!",
+    },
+    form: {
+      name: "Full Name",
+      email: "Email Address",
+      phone: "Phone Number (optional)",
+      message: "Your Message",
+      resume: "Upload your Resume (.doc, .pdf accepted)",
+      submit: "Submit Application",
+      success: "Thank you for your application! We'll be in touch.",
+    },
+    values: {
+      title: "What We Value",
+      items: [
+        { title: "⚡ Inspirational", desc: "Inspiring customers to never settle for retail prices again." },
+        { title: "⚙️ Disciplined", desc: "Staying consistent with our deals and service every single day." },
+        { title: "🤝 Accountability", desc: "We own our promises. If we say it, you can count on it." },
+        { title: "📖 Transparency", desc: "No hidden fees. No games. Just honest prices." },
+        { title: "📌 Aligned", desc: "Every team member working toward the same goal: your savings." },
+        { title: "🎯 Results Oriented", desc: "Measured by the smiles we create and the money you save." },
+      ],
+    },
+    cta: {
+      title: "Ready to Join?",
+      subtitle: "We're always looking for great people. Drop your resume and we'll reach out.",
+      btn: "Apply Now",
     },
   },
 

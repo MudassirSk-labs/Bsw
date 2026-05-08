@@ -15,7 +15,8 @@ import {
   faEnvelope,
   faCrown,
   faCouch,
-  faGlobe,
+  faQuestionCircle,
+  faBriefcase,
 } from "@fortawesome/free-solid-svg-icons";
 import { useTranslation } from "@/i18n/context";
 
@@ -47,6 +48,8 @@ export default function Header() {
     { href: "/weekly-deals", label: t("header.nav.weeklyDeals"), icon: faCalendarAlt },
     { href: "/vip", label: t("header.nav.vip"), icon: faCrown },
     { href: "/furniture", label: t("header.nav.furniture"), icon: faCouch },
+    { href: "/faq", label: t("header.nav.faq"), icon: faQuestionCircle },
+    { href: "/careers", label: t("header.nav.careers"), icon: faBriefcase },
     { href: "/contact", label: t("header.nav.contact"), icon: faEnvelope },
   ];
 
@@ -79,16 +82,12 @@ export default function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-3 shrink-0">
+            <Link href="/" className="flex items-center shrink-0">
               <img
                 src="/images/logo.png"
                 alt="BSW Outlet"
                 className="h-10 w-auto"
               />
-              <div className="hidden sm:block">
-                <span className="text-lg font-bold text-slate-800">{t("header.bsw")}</span>
-                <span className="text-sm text-slate-500 ml-1">{t("header.outlet")}</span>
-              </div>
             </Link>
 
             {/* Desktop Nav */}

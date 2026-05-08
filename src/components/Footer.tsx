@@ -22,13 +22,12 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-4">
+            <Link href="/" className="flex items-center mb-4">
               <img
                 src="/images/logo.png"
                 alt="BSW Outlet"
                 className="h-10 w-auto"
               />
-              <span className="text-xl font-bold text-slate-800">BSW Outlet</span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed">
               {t("footer.description")}
@@ -135,6 +134,18 @@ export default function Footer() {
               </a>
             </div>
             <div className="space-y-2 text-sm">
+              <Link
+                href="/faq"
+                className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
+              >
+                {t("header.nav.faq")}
+              </Link>
+              <Link
+                href="/careers"
+                className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
+              >
+                {t("header.nav.careers")}
+              </Link>
               <Link
                 href="/vip"
                 className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
