@@ -49,35 +49,35 @@ export default function HomePage() {
       {/* Animated background orbs */}
       <div className="orb w-[500px] h-[500px] bg-[#e63946] -top-40 -left-40" />
       <div className="orb w-[400px] h-[400px] bg-[#253998] top-1/3 right-0" />
-      <div className="orb w-[600px] h-[600px] bg-[#7b2ff7] bottom-0 left-1/3" />
+      <div className="orb w-[600px] h-[600px] bg-[#3b5bdb] bottom-0 left-1/3" />
 
       {/* ===== HERO SECTION ===== */}
-      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-grid">
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-b from-white to-slate-50 bg-grid">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30"
+          className="absolute inset-0 bg-cover bg-center opacity-10"
           style={{ backgroundImage: "url('/images/hero-bg.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a23]/90 via-[#0a0a23]/70 to-[#0a0a23]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-white/70 via-transparent to-slate-50/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 w-full">
           <div className="max-w-3xl">
             <FadeInView direction="none">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-sm text-gray-300">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-sm text-slate-600">
+                <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
                 Open Daily 10AM – 7PM &bull; Closed Thursday
               </div>
             </FadeInView>
 
             <FadeInView delay={0.1}>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6">
-                <span className="text-white">MEMPHIS&apos; #1</span>
+                <span className="text-slate-900">MEMPHIS&apos; #1</span>
                 <br />
                 <span className="text-gradient">DISCOUNT BIN STORE</span>
               </h1>
             </FadeInView>
 
             <FadeInView delay={0.2}>
-              <p className="text-xl sm:text-2xl text-gray-300 mb-8 max-w-2xl">
+              <p className="text-xl sm:text-2xl text-slate-600 mb-8 max-w-2xl">
                 Never pay retail again. Massive daily deals on electronics,
                 home goods, tools, apparel &amp; more. New inventory weekly!
               </p>
@@ -109,10 +109,10 @@ export default function HomePage() {
                 <div className="glass-card p-5 text-center">
                   <FontAwesomeIcon
                     icon={stat.icon}
-                    className="text-2xl text-accent mb-2"
+                    className="text-2xl text-[var(--accent)] mb-2"
                   />
-                  <p className="text-white font-semibold">{stat.label}</p>
-                  <p className="text-gray-400 text-sm">{stat.sub}</p>
+                  <p className="text-slate-800 font-semibold">{stat.label}</p>
+                  <p className="text-slate-500 text-sm">{stat.sub}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -121,14 +121,14 @@ export default function HomePage() {
       </section>
 
       {/* ===== WEEKLY SCHEDULE ===== */}
-      <section className="relative py-24">
+      <section className="relative py-24 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">
                 Full Weekly Schedule
               </h2>
-              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+              <p className="text-slate-500 text-lg max-w-2xl mx-auto">
                 Every day is a new deal at BSW Outlet. Here&apos;s how the week breaks down.
               </p>
             </div>
@@ -139,25 +139,25 @@ export default function HomePage() {
               <StaggerItem key={i}>
                 <div
                   className={`glass-card p-6 text-center ${
-                    item.active ? "ring-2 ring-accent" : ""
+                    item.active ? "ring-2 ring-[var(--accent)]" : ""
                   }`}
                 >
                   <div
                     className={`text-3xl font-bold mb-1 ${
                       item.price === "Closed"
-                        ? "text-gray-500"
+                        ? "text-slate-400"
                         : "text-gradient"
                     }`}
                   >
                     {item.price}
                   </div>
-                  <div className="text-sm text-gray-500 uppercase tracking-wider mb-3">
+                  <div className="text-sm text-slate-400 uppercase tracking-wider mb-3">
                     {item.day}
                   </div>
-                  <h3 className="text-white font-semibold text-lg mb-2">
+                  <h3 className="text-slate-800 font-semibold text-lg mb-2">
                     {item.name}
                   </h3>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
+                  <p className="text-slate-500 text-sm">{item.desc}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -169,20 +169,20 @@ export default function HomePage() {
       <NewsletterSection />
 
       {/* ===== LOCATIONS ===== */}
-      <section className="relative py-24">
+      <section className="relative py-24 bg-slate-50">
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-20"
+          className="absolute inset-0 bg-cover bg-center opacity-5"
           style={{ backgroundImage: "url('/images/about-bg.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-[#0a0a23] via-transparent to-[#0a0a23]" />
+        <div className="absolute inset-0 bg-gradient-to-b from-slate-50/90 via-transparent to-slate-50/90" />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">
                 Find Us In Memphis
               </h2>
-              <p className="text-gray-400 text-lg">
+              <p className="text-slate-500 text-lg">
                 The deals live here. You should too.
               </p>
             </div>
@@ -193,29 +193,29 @@ export default function HomePage() {
               {
                 title: "BSW Outlet – Winchester",
                 addr: "6777 Winchester Rd, Memphis, TN 38115",
-                link: "https://maps.google.com/?q=6777+Winchester+Rd+Memphis+TN",
+                link: "https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/",
               },
               {
                 title: "BSW Outlet – Summer Ave",
                 addr: "4224 Summer Ave, Memphis, TN 38122",
-                link: "https://maps.google.com/?q=4224+Summer+Ave+Memphis+TN",
+                link: "https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/",
               },
             ].map((loc, i) => (
               <StaggerItem key={i}>
                 <div className="glass-card p-8">
                   <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-accent shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0">
                       <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
                     </div>
                     <div>
-                      <h3 className="text-white font-bold text-xl mb-2">{loc.title}</h3>
+                      <h3 className="text-slate-800 font-bold text-xl mb-2">{loc.title}</h3>
                       <a
                         href={loc.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-white transition-colors"
+                        className="text-slate-500 hover:text-[var(--accent)] transition-colors"
                       >
-                        <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-accent" />
+                        <FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-[var(--accent)]" />
                         {loc.addr}
                       </a>
                     </div>
@@ -228,36 +228,36 @@ export default function HomePage() {
               <div className="glass-card p-8">
                 <div className="grid grid-cols-1 sm:grid-cols-3 gap-8">
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-accent shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0">
                       <FontAwesomeIcon icon={faClock} size="lg" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">Open Daily</p>
-                      <p className="text-gray-400 text-sm">10AM – 7PM</p>
-                      <p className="text-accent text-sm">Closed Thursday</p>
+                      <p className="text-slate-800 font-semibold">Open Daily</p>
+                      <p className="text-slate-500 text-sm">10AM – 7PM</p>
+                      <p className="text-[var(--accent)] text-sm font-medium">Closed Thursday</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-accent shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0">
                       <FontAwesomeIcon icon={faPhone} size="lg" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">Call Us</p>
+                      <p className="text-slate-800 font-semibold">Call Us</p>
                       <a
                         href="tel:+19016951857"
-                        className="text-gray-400 hover:text-white text-sm transition-colors"
+                        className="text-slate-500 hover:text-[var(--accent)] text-sm transition-colors"
                       >
                         (901) 695-1857
                       </a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-full glass flex items-center justify-center text-accent shrink-0">
+                    <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0">
                       <FontAwesomeIcon icon={faStar} size="lg" />
                     </div>
                     <div>
-                      <p className="text-white font-semibold">Memphis&apos; Best</p>
-                      <p className="text-gray-400 text-sm">Rated #1 bin store</p>
+                      <p className="text-slate-800 font-semibold">Memphis&apos; Best</p>
+                      <p className="text-slate-500 text-sm">Rated #1 bin store</p>
                     </div>
                   </div>
                 </div>
@@ -268,29 +268,29 @@ export default function HomePage() {
       </section>
 
       {/* ===== TESTIMONIALS ===== */}
-      <section className="relative py-24 bg-grid">
+      <section className="relative py-24 bg-grid bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl font-bold text-white mb-4">
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">
                 What Memphis Is Saying
               </h2>
-              <p className="text-gray-400 text-lg">Don&apos;t take our word for it.</p>
+              <p className="text-slate-500 text-lg">Don&apos;t take our word for it.</p>
             </div>
           </FadeInView>
 
           <div className="max-w-2xl mx-auto">
             <FadeInView key={activeIndex} delay={0.1}>
               <div className="glass-card p-8 text-center min-h-[200px]">
-                <div className="text-accent text-lg mb-3">
+                <div className="text-[var(--accent)] text-lg mb-3">
                   {"★".repeat(testimonials[activeIndex].rating)}
                   {"☆".repeat(5 - testimonials[activeIndex].rating)}
                 </div>
-                <p className="text-white text-lg mb-6 italic">
+                <p className="text-slate-700 text-lg mb-6 italic">
                   &ldquo;{testimonials[activeIndex].text}&rdquo;
                 </p>
-                <p className="text-white font-semibold">{testimonials[activeIndex].name}</p>
-                <p className="text-gray-500 text-sm">{testimonials[activeIndex].platform}</p>
+                <p className="text-slate-800 font-semibold">{testimonials[activeIndex].name}</p>
+                <p className="text-slate-400 text-sm">{testimonials[activeIndex].platform}</p>
               </div>
             </FadeInView>
 
@@ -301,8 +301,8 @@ export default function HomePage() {
                   onClick={() => setActiveIndex(i)}
                   className={`w-3 h-3 rounded-full transition-all ${
                     i === activeIndex
-                      ? "bg-accent w-8"
-                      : "bg-white/20 hover:bg-white/40"
+                      ? "bg-[var(--accent)] w-8"
+                      : "bg-slate-300 hover:bg-slate-400"
                   }`}
                   aria-label={`Testimonial ${i + 1}`}
                 />
@@ -313,14 +313,14 @@ export default function HomePage() {
       </section>
 
       {/* ===== CTA SECTION ===== */}
-      <section className="relative py-24">
+      <section className="relative py-24 bg-gradient-to-b from-white to-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInView>
             <div className="glass-strong rounded-2xl p-12 md:p-20">
-              <h2 className="text-3xl sm:text-5xl font-bold text-white mb-6">
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-6">
                 Ready to Save Big?
               </h2>
-              <p className="text-gray-300 text-xl mb-8 max-w-2xl mx-auto">
+              <p className="text-slate-600 text-xl mb-8 max-w-2xl mx-auto">
                 Don&apos;t pay full price ever again. Come dig, find, and win at
                 BSW Outlet — Memphis&apos; #1 discount bin store.
               </p>

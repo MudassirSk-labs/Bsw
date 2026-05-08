@@ -45,8 +45,8 @@ export default function Header() {
                 className="h-10 w-auto"
               />
               <div className="hidden sm:block">
-                <span className="text-lg font-bold text-white">BSW</span>
-                <span className="text-sm text-gray-400 ml-1">Outlet</span>
+                <span className="text-lg font-bold text-slate-800">BSW</span>
+                <span className="text-sm text-slate-500 ml-1">Outlet</span>
               </div>
             </Link>
 
@@ -60,8 +60,8 @@ export default function Header() {
                     href={link.href}
                     className={`px-4 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
                       isActive
-                        ? "glass text-white"
-                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                        ? "glass text-slate-800"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-100"
                     }`}
                   >
                     <FontAwesomeIcon icon={link.icon} className="mr-2" />
@@ -75,9 +75,9 @@ export default function Header() {
             <div className="hidden md:flex items-center gap-3">
               <a
                 href="tel:+19016951857"
-                className="flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors"
+                className="flex items-center gap-2 text-sm text-slate-600 hover:text-slate-900 transition-colors"
               >
-                <FontAwesomeIcon icon={faPhone} className="text-accent" />
+                <FontAwesomeIcon icon={faPhone} className="text-[var(--accent)]" />
                 <span>(901) 695-1857</span>
               </a>
               <Link href="/weekly-deals" className="btn-primary text-sm !py-2 !px-4">
@@ -89,7 +89,7 @@ export default function Header() {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setMobileOpen(!mobileOpen)}
-              className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors"
+              className="md:hidden text-slate-700 p-2 hover:bg-slate-100 rounded-lg transition-colors"
               aria-label="Toggle menu"
             >
               <FontAwesomeIcon icon={mobileOpen ? faXmark : faBars} size="lg" />
@@ -99,8 +99,8 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileOpen && (
-          <div className="md:hidden border-t border-white/10">
-            <div className="px-4 py-4 space-y-2">
+          <div className="md:hidden border-t border-slate-200">
+            <div className="px-4 py-4 space-y-2 bg-white">
               {navLinks.map((link) => {
                 const isActive = pathname === link.href;
                 return (
@@ -110,8 +110,8 @@ export default function Header() {
                     onClick={() => setMobileOpen(false)}
                     className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all ${
                       isActive
-                        ? "glass text-white"
-                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                        ? "glass text-slate-800"
+                        : "text-slate-600 hover:text-slate-900 hover:bg-slate-50"
                     }`}
                   >
                     <FontAwesomeIcon icon={link.icon} className="w-5" />
@@ -122,9 +122,9 @@ export default function Header() {
               <div className="pt-2 space-y-2">
                 <a
                   href="tel:+19016951857"
-                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-gray-300 hover:text-white hover:bg-white/10 transition-all"
+                  className="flex items-center gap-3 px-4 py-3 rounded-xl text-sm text-slate-600 hover:text-slate-900 hover:bg-slate-50 transition-all"
                 >
-                  <FontAwesomeIcon icon={faPhone} className="text-accent" />
+                  <FontAwesomeIcon icon={faPhone} className="text-[var(--accent)]" />
                   (901) 695-1857
                 </a>
                 <Link

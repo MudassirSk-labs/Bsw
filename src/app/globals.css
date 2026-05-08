@@ -1,13 +1,11 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #1a3a8a;
-  --primary-light: #253998;
   --accent: #e63946;
+  --accent-dark: #c1121f;
   --accent-gold: #f4a261;
-  --glass-bg: rgba(255, 255, 255, 0.08);
-  --glass-border: rgba(255, 255, 255, 0.18);
-  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --blue: #253998;
+  --blue-light: #3b5bdb;
 }
 
 @theme inline {
@@ -23,60 +21,75 @@ html {
 
 body {
   font-family: var(--font-sans, Arial, Helvetica, sans-serif);
-  background: #0a0a23;
-  color: #f0f0f0;
+  background: #f8fafc;
+  color: #1e293b;
   min-height: 100vh;
 }
 
 /* ===== Glassmorphism Utilities ===== */
 .glass {
-  background: rgba(255, 255, 255, 0.08) !important;
+  background: rgba(255, 255, 255, 0.7) !important;
   backdrop-filter: blur(16px) !important;
   -webkit-backdrop-filter: blur(16px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.18) !important;
+  border: 1px solid rgba(255, 255, 255, 0.4) !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06) !important;
 }
 
 .glass-strong {
-  background: rgba(255, 255, 255, 0.14) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(24px) !important;
   -webkit-backdrop-filter: blur(24px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08) !important;
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.06) !important;
+  background: #ffffff !important;
   backdrop-filter: blur(12px) !important;
   -webkit-backdrop-filter: blur(12px) !important;
-  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border: 1px solid rgba(0, 0, 0, 0.06) !important;
   border-radius: 1rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
   transition: all 0.3s ease;
 }
 
 .glass-card:hover {
-  background: rgba(255, 255, 255, 0.12) !important;
-  border-color: rgba(255, 255, 255, 0.2) !important;
+  border-color: rgba(0, 0, 0, 0.1) !important;
   transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
 }
 
 /* ===== Navbar ===== */
 .nav-glass {
-  background: rgba(10, 10, 35, 0.7) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
   backdrop-filter: blur(20px) !important;
   -webkit-backdrop-filter: blur(20px) !important;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06) !important;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
 }
 
-/* ===== Background gradients ===== */
+/* ===== Background patterns ===== */
 .bg-grid {
   background-image:
-    linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    linear-gradient(rgba(37, 57, 152, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(37, 57, 152, 0.03) 1px, transparent 1px);
   background-size: 60px 60px;
+}
+
+.bg-gradient-section {
+  background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
 }
 
 /* ===== Text effects ===== */
 .text-gradient {
-  background: linear-gradient(135deg, #f4a261 0%, #e63946 50%, #7b2ff7 100%);
+  background: linear-gradient(135deg, #e63946 0%, #253998 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-warm {
+  background: linear-gradient(135deg, #f4a261 0%, #e63946 50%, #253998 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -100,17 +113,18 @@ body {
 
 .btn-primary:hover {
   transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(230, 57, 70, 0.3);
 }
 
 .btn-glass {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: white;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  color: #1e293b;
   padding: 0.75rem 2rem;
   border-radius: 9999px;
   font-weight: 600;
@@ -120,8 +134,9 @@ body {
 }
 
 .btn-glass:hover {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.95);
   transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
 }
 
 /* ===== Animated gradient orb ===== */
@@ -129,13 +144,13 @@ body {
   position: absolute;
   border-radius: 50%;
   filter: blur(80px);
-  opacity: 0.3;
+  opacity: 0.12;
   pointer-events: none;
 }
 
 /* ===== Notifications bar ===== */
 .notification-bar {
-  background: linear-gradient(90deg, #1a3a8a, #253998, #1a3a8a);
+  background: linear-gradient(90deg, #253998, #3b5bdb, #253998);
   color: white;
   text-align: center;
   padding: 0.5rem 1rem;
