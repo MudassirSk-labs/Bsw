@@ -7,12 +7,12 @@ import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInVi
 
 const schedule = [
   { day: "Thursday", price: "$10", title: "$10 Thursday", tagline: "New deal day — fresh inventory!", desc: "Thursday is now a deal day! Fresh drops hit the floor with everything in the bins at $10. Best day to catch up on what you missed earlier in the week.", img: "deal-thu.png", active: true },
-  { day: "Friday", price: "$8", title: "$8 Friday", tagline: "Fresh drops. Fresh prices.", desc: "New inventory hits the floor. Great day to shop if you missed the early rush. Everything in bins is just $8.", img: "deal-fri.png" },
-  { day: "Saturday", price: "$7", title: "$7 Saturday", tagline: "Our biggest day of the week!", desc: "Brand new inventory drops. If you want first dibs on the best finds, Saturday is it. Doors open at 10AM — line up early!", img: "deal-sat.png", active: true },
-  { day: "Sunday", price: "$5", title: "$5 Sunday", tagline: "Weekend steals continue!", desc: "Everything in the bins? Just $5. Come wrap up your weekend with some incredible finds before Monday's reset.", img: "deal-sun.png" },
-  { day: "Monday", price: "$3", title: "Mystery Monday", tagline: "You never know what you'll find.", desc: "Fresh surprises. Wild finds. Mystery Mondays hit different. Everything in the bins is just $3 — come ready to hunt.", img: "deal-mon.png" },
-  { day: "Tuesday", price: "$2", title: "$2 Tuesday", tagline: "The bin hunt begins.", desc: "Get here early and dig for gold. At $2, everything in the bins is a steal. Our regulars know Tuesday is prime hunting day.", img: "deal-tue.png" },
-  { day: "Wednesday", price: "$1", title: "$1 Wednesday", tagline: "Last chance before reset.", desc: "Everything left drops to just $1. Unreal value. Come grab whatever's left before we clear the bins for restock.", img: "deal-wed.png" },
+  { day: "Friday", price: "$8", title: "$8 Friday", tagline: "Fresh drops. Fresh prices.", desc: "New inventory hits the floor. Great day to shop if you missed the early rush. Everything in bins is just $8.", img: "deal-fri.jpg" },
+  { day: "Saturday", price: "$7", title: "$7 Saturday", tagline: "Our biggest day of the week!", desc: "Brand new inventory drops. If you want first dibs on the best finds, Saturday is it. Doors open at 10AM — line up early!", img: "deal-sat.jpg", active: true },
+  { day: "Sunday", price: "$5", title: "$5 Sunday", tagline: "Weekend steals continue!", desc: "Everything in the bins? Just $5. Come wrap up your weekend with some incredible finds before Monday's reset.", img: "deal-sun.jpg" },
+  { day: "Monday", price: "$3", title: "Mystery Monday", tagline: "You never know what you'll find.", desc: "Fresh surprises. Wild finds. Mystery Mondays hit different. Everything in the bins is just $3 — come ready to hunt.", img: "deal-mon.jpg" },
+  { day: "Tuesday", price: "$2", title: "$2 Tuesday", tagline: "The bin hunt begins.", desc: "Get here early and dig for gold. At $2, everything in the bins is a steal. Our regulars know Tuesday is prime hunting day.", img: "deal-tue.jpg" },
+  { day: "Wednesday", price: "$1", title: "$1 Wednesday", tagline: "Last chance before reset.", desc: "Everything left drops to just $1. Unreal value. Come grab whatever's left before we clear the bins for restock.", img: "deal-wed.jpg" },
 ];
 
 export default function WeeklyDealsPage() {

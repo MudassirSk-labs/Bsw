@@ -6,6 +6,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import PageTransition from "@/components/PageTransition";
+import { I18nProvider } from "@/i18n/context";
 
 config.autoAddCss = false;
 
@@ -40,11 +41,13 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
       <body className="min-h-screen flex flex-col">
-        <Header />
-        <main className="flex-1 page-wrapper">
-          <PageTransition>{children}</PageTransition>
-        </main>
-        <Footer />
+        <I18nProvider>
+          <Header />
+          <main className="flex-1 page-wrapper">
+            <PageTransition>{children}</PageTransition>
+          </main>
+          <Footer />
+        </I18nProvider>
       </body>
     </html>
   );

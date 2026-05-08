@@ -1,3 +1,4 @@
+"use client";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
@@ -10,8 +11,11 @@ import {
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import { useT } from "@/i18n/context";
 
 export default function Footer() {
+  const t = useT();
+
   return (
     <footer className="relative mt-auto border-t border-slate-200 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
@@ -27,8 +31,7 @@ export default function Footer() {
               <span className="text-xl font-bold text-slate-800">BSW Outlet</span>
             </Link>
             <p className="text-slate-500 text-sm leading-relaxed">
-              Memphis&apos; #1 discount bin store. Never pay retail again.
-              Massive daily deals on electronics, home goods, tools, apparel &amp; more.
+              {t("footer.description")}
             </p>
           </div>
 
@@ -36,7 +39,7 @@ export default function Footer() {
           <div>
             <h3 className="text-slate-800 font-semibold mb-4 flex items-center gap-2">
               <FontAwesomeIcon icon={faMapMarkerAlt} className="text-[var(--accent)]" />
-              Locations
+              {t("footer.locations")}
             </h3>
             <div className="space-y-4 text-sm">
               <div>
@@ -72,19 +75,19 @@ export default function Footer() {
           <div>
             <h3 className="text-slate-800 font-semibold mb-4 flex items-center gap-2">
               <FontAwesomeIcon icon={faClock} className="text-[var(--accent)]" />
-              Store Hours
+              {t("footer.hours")}
             </h3>
             <div className="space-y-2 text-sm text-slate-500">
               <div className="flex justify-between">
-                <span>Mon – Wed</span>
+                <span>{t("footer.monWed")}</span>
                 <span className="text-slate-800 font-medium">10AM – 7PM</span>
               </div>
               <div className="flex justify-between">
-                <span>Thursday</span>
+                <span>{t("footer.thu")}</span>
                 <span className="text-slate-800 font-medium">10AM – 7PM</span>
               </div>
               <div className="flex justify-between">
-                <span>Fri – Sun</span>
+                <span>{t("footer.friSun")}</span>
                 <span className="text-slate-800 font-medium">10AM – 7PM</span>
               </div>
               <div className="mt-4 pt-4 border-t border-slate-200">
@@ -101,7 +104,7 @@ export default function Footer() {
 
           {/* Social + Quick links */}
           <div>
-            <h3 className="text-slate-800 font-semibold mb-4">Follow Us</h3>
+            <h3 className="text-slate-800 font-semibold mb-4">{t("footer.follow")}</h3>
             <div className="flex gap-3 mb-6">
               <a
                 href="https://www.facebook.com/people/BSW-outlet/61575132308874/"
@@ -136,25 +139,25 @@ export default function Footer() {
                 href="/vip"
                 className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
               >
-                VIP Club
+                {t("header.nav.vip")}
               </Link>
               <Link
                 href="/furniture"
                 className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
               >
-                Furniture
+                {t("header.nav.furniture")}
               </Link>
               <Link
                 href="/weekly-deals"
                 className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
               >
-                Weekly Deals
+                {t("header.nav.weeklyDeals")}
               </Link>
               <Link
                 href="/contact"
                 className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
               >
-                Contact Us
+                {t("header.nav.contact")}
               </Link>
             </div>
           </div>
@@ -163,7 +166,7 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-slate-400">
           <p>
-            &copy; {new Date().getFullYear()} BSW Outlet. All rights reserved. &nbsp;|&nbsp; Website by{" "}
+            &copy; {new Date().getFullYear()} BSW Outlet. {t("footer.rights")} &nbsp;|&nbsp; {t("footer.websiteBy")}{" "}
             <a
               href="https://platformsandtraffic.com/"
               target="_blank"
@@ -175,10 +178,10 @@ export default function Footer() {
           </p>
           <div className="flex gap-4">
             <Link href="/terms" className="hover:text-[var(--accent)] transition-colors">
-              Terms &amp; Conditions
+              {t("footer.terms")}
             </Link>
             <Link href="/privacy" className="hover:text-[var(--accent)] transition-colors">
-              Privacy Policy
+              {t("footer.privacy")}
             </Link>
           </div>
         </div>

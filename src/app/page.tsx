@@ -22,12 +22,12 @@ import NewsletterSection from "@/components/NewsletterSection";
 
 const schedule = [
   { day: "Thursday", price: "$10", name: "$10 Thursday", desc: "New deal day! Fresh inventory + $10 pricing. Best day to catch up on what you missed.", img: "deal-thu.png", active: true },
-  { day: "Friday", price: "$8", name: "$8 Friday", desc: "Fresh drops + $8 pricing = certified win.", img: "deal-fri.png" },
-  { day: "Saturday", price: "$7", name: "$7 Saturday", desc: "Our biggest day. Brand new inventory. First dibs!", img: "deal-sat.png", active: true },
-  { day: "Sunday", price: "$5", name: "$5 Sunday", desc: "Weekend steals continue! Everything in the bins? Just $5.", img: "deal-sun.png" },
-  { day: "Monday", price: "$3", name: "Mystery Monday", desc: "You never know what you'll find. Fresh surprises. Wild finds.", img: "deal-mon.png" },
-  { day: "Tuesday", price: "$2", name: "$2 Tuesday", desc: "The bin hunt begins. Get here early and dig for gold.", img: "deal-tue.png" },
-  { day: "Wednesday", price: "$1", name: "$1 Wednesday", desc: "Last chance before reset. Everything drops to just $1.", img: "deal-wed.png" },
+  { day: "Friday", price: "$8", name: "$8 Friday", desc: "Fresh drops + $8 pricing = certified win.", img: "deal-fri.jpg" },
+  { day: "Saturday", price: "$7", name: "$7 Saturday", desc: "Our biggest day. Brand new inventory. First dibs!", img: "deal-sat.jpg", active: true },
+  { day: "Sunday", price: "$5", name: "$5 Sunday", desc: "Weekend steals continue! Everything in the bins? Just $5.", img: "deal-sun.jpg" },
+  { day: "Monday", price: "$3", name: "Mystery Monday", desc: "You never know what you'll find. Fresh surprises. Wild finds.", img: "deal-mon.jpg" },
+  { day: "Tuesday", price: "$2", name: "$2 Tuesday", desc: "The bin hunt begins. Get here early and dig for gold.", img: "deal-tue.jpg" },
+  { day: "Wednesday", price: "$1", name: "$1 Wednesday", desc: "Last chance before reset. Everything drops to just $1.", img: "deal-wed.jpg" },
 ];
 
 const testimonials = [

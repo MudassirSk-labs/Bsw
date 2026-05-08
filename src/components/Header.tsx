@@ -15,45 +15,60 @@ import {
   faEnvelope,
   faCrown,
   faCouch,
+  faGlobe,
 } from "@fortawesome/free-solid-svg-icons";
+import { useTranslation } from "@/i18n/context";
 
-const navLinks = [
-  { href: "/", label: "Home", icon: faHome },
-  { href: "/about", label: "About", icon: faInfoCircle },
-  { href: "/weekly-deals", label: "Weekly Deals", icon: faCalendarAlt },
-  { href: "/vip", label: "VIP Club", icon: faCrown },
-  { href: "/furniture", label: "Furniture", icon: faCouch },
-  { href: "/contact", label: "Contact Us", icon: faEnvelope },
-];
-
-const dailySchedule: Record<string, { price: string; emoji: string }> = {
-  Sunday: { price: "$5", emoji: "🎉" },
-  Monday: { price: "$3", emoji: "🎲" },
-  Tuesday: { price: "$2", emoji: "🔍" },
-  Wednesday: { price: "$1", emoji: "💎" },
-  Thursday: { price: "$10", emoji: "💥" },
-  Friday: { price: "$8", emoji: "🔥" },
-  Saturday: { price: "$7", emoji: "⭐" },
-};
-
-function getTodayMessage(): string {
-  const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
-  const today = days[new Date().getDay()];
-  const info = dailySchedule[today];
-  return `${info.emoji} Today is ${today}! Everything you find in the bins are ${info.price}. We are open from 10AM to 7PM. BSW — Never Pay Retail Again!`;
-}
+const dayKeys = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [todayMsg, setTodayMsg] = useState("");
   const pathname = usePathname();
+  const { t, lang, toggleLang } = useTranslation();
 
+  // Build notification message
   useEffect(() => {
-    setTodayMsg(getTodayMessage());
-  }, []);
+    const now = new Date();
+    const dayKey = dayKeys[now.getDay()]; // "sunday"... "saturday"
+    const dayLabel = t(`header.notification.${dayKey}`);
+    const price = t(`header.notification.prices.${dayKey === "thursday" ? "thu" : dayKey.substring(0, 3)}`);
+    const emoji = t(`header.notification.emojis.${dayKey === "thursday" ? "thu" : dayKey.substring(0, 3)}`);
+    const prefix = t("header.notification.prefix");
+    const everything = t("header.notification.everything");
+    const open = t("header.notification.open");
+    const tagline = t("header.notification.tagline");
+    setTodayMsg(`${emoji} ${prefix} ${dayLabel}! ${everything} ${price}. ${open} ${tagline}`);
+  }, [t, lang]);
+
+  const navLinks = [
+    { href: "/", label: t("header.nav.home"), icon: faHome },
+    { href: "/about", label: t("header.nav.about"), icon: faInfoCircle },
+    { href: "/weekly-deals", label: t("header.nav.weeklyDeals"), icon: faCalendarAlt },
+    { href: "/vip", label: t("header.nav.vip"), icon: faCrown },
+    { href: "/furniture", label: t("header.nav.furniture"), icon: faCouch },
+    { href: "/contact", label: t("header.nav.contact"), icon: faEnvelope },
+  ];
 
   return (
     <>
+      {/* Language Switcher Bar */}
+      <div className="flex items-center justify-end gap-1 px-4 py-1 bg-slate-900 text-xs">
+        <button
+          onClick={() => { if (lang !== "en") toggleLang(); }}
+          className={`px-2 py-0.5 rounded transition-colors ${lang === "en" ? "text-white font-semibold" : "text-slate-400 hover:text-white"}`}
+        >
+          EN
+        </button>
+        <span className="text-slate-600">|</span>
+        <button
+          onClick={() => { if (lang !== "es") toggleLang(); }}
+          className={`px-2 py-0.5 rounded transition-colors ${lang === "es" ? "text-white font-semibold" : "text-slate-400 hover:text-white"}`}
+        >
+          ES
+        </button>
+      </div>
+
       {/* Notification Bar */}
       <div className="notification-bar">
         <span>{todayMsg || "BSW Outlet — Never Pay Retail Again!"}</span>
@@ -71,8 +86,8 @@ export default function Header() {
                 className="h-10 w-auto"
               />
               <div className="hidden sm:block">
-                <span className="text-lg font-bold text-slate-800">BSW</span>
-                <span className="text-sm text-slate-500 ml-1">Outlet</span>
+                <span className="text-lg font-bold text-slate-800">{t("header.bsw")}</span>
+                <span className="text-sm text-slate-500 ml-1">{t("header.outlet")}</span>
               </div>
             </Link>
 
@@ -108,7 +123,7 @@ export default function Header() {
               </a>
               <Link href="/weekly-deals" className="btn-primary text-sm !py-2 !px-4">
                 <FontAwesomeIcon icon={faTag} />
-                Weekly Deals
+                {t("header.weeklyDeals")}
               </Link>
             </div>
 
@@ -159,7 +174,7 @@ export default function Header() {
                   className="btn-primary w-full justify-center text-sm"
                 >
                   <FontAwesomeIcon icon={faTag} />
-                  Weekly Deals
+                  {t("header.weeklyDeals")}
                 </Link>
               </div>
             </div>
