@@ -12,12 +12,14 @@ export default function ContactPage() {
       <div className="orb w-[350px] h-[350px] bg-[#f4a261] bottom-0 left-0" />
 
       {/* HERO */}
-      <section className="relative py-24 md:py-32 bg-gradient-to-b from-white to-slate-50 bg-grid">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-slate-50/90" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-12 md:py-20 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
-            <h1 className="text-4xl sm:text-6xl font-bold text-slate-900 mb-4">Get In <span className="text-gradient">Touch</span></h1>
-            <p className="text-xl text-slate-600">We&apos;d love to hear from you. Reach out with questions, feedback, or just to say hi.</p>
+            <img
+              src="/images/storefront.svg"
+              alt="BSW Outlet - Find us in Memphis"
+              className="w-full max-w-[550px] mx-auto h-auto"
+            />
           </FadeInView>
         </div>
       </section>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" width="600" height="400">
+  <defs>
+    <linearGradient id="dealsBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff7ed;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffedd5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="600" height="400" fill="url(#dealsBg)" rx="20"/>
+  <!-- Mega tag -->
+  <g transform="translate(300, 180)">
+    <path d="M-120,0 L-120,-60 L120,-60 L120,0 L60,50 L-120,50 Z" fill="#e63946" rx="8"/>
+    <text x="0" y="-18" text-anchor="middle" font-family="Arial" font-size="48" font-weight="bold" fill="white">DEALS</text>
+    <text x="0" y="25" text-anchor="middle" font-family="Arial" font-size="16" fill="#fbbf24">EVERY DAY</text>
+  </g>
+  <!-- Small tags -->
+  <g transform="translate(100, 80)">
+    <rect x="0" y="0" width="70" height="30" rx="15" fill="#253998" transform="rotate(-15)"/>
+    <text x="35" y="20" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="white">$1</text>
+  </g>
+  <g transform="translate(440, 100)">
+    <rect x="0" y="0" width="70" height="30" rx="15" fill="#f4a261" transform="rotate(10)"/>
+    <text x="35" y="20" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="white">$3</text>
+  </g>
+  <g transform="translate(80, 310)">
+    <rect x="0" y="0" width="70" height="30" rx="15" fill="#e63946" transform="rotate(8)"/>
+    <text x="35" y="20" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="white">$5</text>
+  </g>
+  <g transform="translate(450, 300)">
+    <rect x="0" y="0" width="70" height="30" rx="15" fill="#253998" transform="rotate(-10)"/>
+    <text x="35" y="20" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="white">$8</text>
+  </g>
+  <g transform="translate(170, 300)">
+    <rect x="0" y="0" width="90" height="30" rx="15" fill="#7b2ff7" transform="rotate(-5)"/>
+    <text x="45" y="20" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="white">$10</text>
+  </g>
+  <g transform="translate(350, 310)">
+    <rect x="0" y="0" width="70" height="30" rx="15" fill="#f4a261" transform="rotate(5)"/>
+    <text x="35" y="20" text-anchor="middle" font-family="Arial" font-size="13" font-weight="bold" fill="white">$7</text>
+  </g>
+  <!-- Label -->
+  <text x="300" y="350" text-anchor="middle" font-family="Arial" font-size="24" font-weight="bold" fill="#1e293b">WEEKLY PRICE SCHEDULE</text>
+  <text x="300" y="375" text-anchor="middle" font-family="Arial" font-size="14" fill="#64748b">New deals start every Thursday!</text>
+  <!-- Star -->
+  <text x="520" y="50" font-size="20" fill="#f4a261" opacity="0.5">✦</text>
+  <text x="60" y="50" font-size="18" fill="#e63946" opacity="0.4">✦</text>
+</svg>

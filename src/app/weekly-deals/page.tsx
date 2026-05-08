@@ -22,22 +22,14 @@ export default function WeeklyDealsPage() {
       <div className="orb w-[400px] h-[400px] bg-[#f4a261] bottom-0 right-0" />
 
       {/* HERO */}
-      <section className="relative py-24 md:py-36 bg-gradient-to-b from-white to-slate-50 bg-grid">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-slate-50/90" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-12 md:py-20 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-sm text-slate-600">
-              <FontAwesomeIcon icon={faCalendarDay} className="text-[var(--accent)]" />
-              Updated Weekly
-            </div>
-            <h1 className="text-4xl sm:text-6xl font-bold text-slate-900 mb-4">
-              Weekly <span className="text-gradient">Deals</span>
-            </h1>
-            <p className="text-xl text-slate-600 mb-8">The best bin store deals in Memphis — updated every week.</p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
-              <span><FontAwesomeIcon icon={faMapMarkerAlt} className="text-[var(--accent)] mr-2" />6777 Winchester Rd, Memphis, TN 38115</span>
-              <span><FontAwesomeIcon icon={faMapMarkerAlt} className="text-[var(--accent)] mr-2" />4224 Summer Ave, Memphis, TN 38122</span>
-            </div>
+            <img
+              src="/images/deals-hero.svg"
+              alt="Weekly Deals at BSW Outlet"
+              className="w-full max-w-[600px] mx-auto h-auto mb-8"
+            />
           </FadeInView>
         </div>
       </section>
@@ -60,6 +52,19 @@ export default function WeeklyDealsPage() {
               </StaggerItem>
             ))}
           </StaggerContainer>
+        </div>
+      </section>
+
+      {/* STORE GALLERY */}
+      <section className="relative py-16 bg-slate-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+            {[1,3,5,7].map(i => (
+              <div key={i} className="glass-card overflow-hidden rounded-xl h-32 md:h-40">
+                <img src={`/images/gallery-${i}.jpg`} alt="BSW Outlet store" className="w-full h-full object-cover hover:scale-110 transition-transform duration-500" loading="lazy" />
+              </div>
+            ))}
+          </div>
         </div>
       </section>
 

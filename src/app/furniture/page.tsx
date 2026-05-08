@@ -27,15 +27,6 @@ const categories = [
   { icon: faBox, title: "Storage & Shelving", desc: "Bookshelves, cabinets, storage ottomans, TV stands." },
 ];
 
-const deals = [
-  { item: "Accent Chair", original: "$120", vip: "$35", bin: "$15" },
-  { item: "Coffee Table", original: "$200", vip: "$55", bin: "$25" },
-  { item: "Floor Lamp", original: "$80", vip: "$20", bin: "$8" },
-  { item: "Nightstand", original: "$150", vip: "$40", bin: "$18" },
-  { item: "Storage Ottoman", original: "$90", vip: "$25", bin: "$10" },
-  { item: "Wall Mirror", original: "$110", vip: "$30", bin: "$12" },
-];
-
 export default function FurniturePage() {
   return (
     <div className="relative">
@@ -86,52 +77,48 @@ export default function FurniturePage() {
         </div>
       </section>
 
-      {/* SAMPLE PRICING */}
+      {/* FURNITURE GALLERY */}
       <section className="relative py-20 bg-slate-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
-                Sample Furniture Pricing
+                See What&apos;s In Store
               </h2>
               <p className="text-slate-500 text-lg">
-                See the difference. Retail vs. BSW — you do the math.
+                New furniture drops every week. Come see for yourself!
               </p>
             </div>
           </FadeInView>
 
-          <div className="overflow-x-auto rounded-2xl">
-            <FadeInView>
-              <div className="glass-card min-w-[600px]">
-                <table className="w-full text-sm">
-                  <thead>
-                    <tr className="border-b border-slate-100">
-                      <th className="text-left px-6 py-4 text-slate-500 font-medium">Item</th>
-                      <th className="text-center px-6 py-4 text-slate-500 font-medium">Retail</th>
-                      <th className="text-center px-6 py-4 text-[#f4a261] font-medium">VIP Price</th>
-                      <th className="text-center px-6 py-4 text-[var(--accent)] font-medium">Bin Price</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {deals.map((d, i) => (
-                      <tr key={i} className="border-b border-slate-50 last:border-0">
-                        <td className="px-6 py-4 text-slate-800 font-medium">{d.item}</td>
-                        <td className="px-6 py-4 text-center text-slate-400 line-through">{d.original}</td>
-                        <td className="px-6 py-4 text-center text-[#f4a261] font-bold">{d.vip}</td>
-                        <td className="px-6 py-4 text-center text-[var(--accent)] font-bold">{d.bin}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
+          <StaggerContainer className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4" staggerDelay={0.05}>
+            {[1,2,3,4,5,6,7,8].map(i => (
+              <StaggerItem key={i}>
+                <div className="glass-card overflow-hidden aspect-square">
+                  <img
+                    src={`/images/gallery-${i}.jpg`}
+                    alt={`BSW Outlet store - furniture finds`}
+                    className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+                    loading="lazy"
+                  />
+                </div>
+              </StaggerItem>
+            ))}
+            <StaggerItem>
+              <div className="glass-card p-6 flex flex-col items-center justify-center aspect-square text-center bg-gradient-to-br from-[#fef3c7] to-[#fde68a]">
+                <img src="/images/furniture-sofa.svg" alt="Sofas" className="w-20 h-16 mb-3" />
+                <p className="text-slate-800 font-bold text-lg">Sofas</p>
+                <p className="text-slate-500 text-xs">Starting at $15</p>
               </div>
-            </FadeInView>
-          </div>
-
-          <FadeInView className="text-center mt-6">
-            <p className="text-slate-400 text-sm">
-              * Prices vary by day and inventory. VIP members get the best deal every time.
-            </p>
-          </FadeInView>
+            </StaggerItem>
+            <StaggerItem>
+              <div className="glass-card p-6 flex flex-col items-center justify-center aspect-square text-center bg-gradient-to-br from-[#dbeafe] to-[#bfdbfe]">
+                <img src="/images/furniture-sofa.svg" alt="Chairs" className="w-20 h-16 mb-3 scale-x-[-1]" />
+                <p className="text-slate-800 font-bold text-lg">Chairs</p>
+                <p className="text-slate-500 text-xs">Starting at $8</p>
+              </div>
+            </StaggerItem>
+          </StaggerContainer>
         </div>
       </section>
 
