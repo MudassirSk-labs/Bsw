@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMapMarkerAlt, faPhone, faClock, faPaperPlane, faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
+import { useT } from "@/i18n/context";
 
 export default function ContactPage() {
   return (

@@ -6,6 +6,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
+import { useT } from "@/i18n/context";
 
 const values = [
   { icon: faBolt, title: "Inspirational", desc: "Inspiring customers to never settle for retail prices again." },
@@ -22,6 +23,7 @@ const galleryImages = Array.from({ length: 12 }, (_, i) => ({
 }));
 
 export default function AboutPage() {
+  const t = useT();
   return (
     <div className="relative">
       <div className="orb w-[400px] h-[400px] bg-[#253998] -top-20 -right-20" />
@@ -35,10 +37,10 @@ export default function AboutPage() {
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInView>
             <h1 className="text-4xl sm:text-6xl font-bold text-slate-900 mb-4">
-              About <span className="text-gradient">BSW Outlet</span>
+              {t("about.hero.title")} <span className="text-gradient">{t("about.hero.highlight")}</span>
             </h1>
             <p className="text-xl text-slate-600">
-              Big savings. Big collection. <strong className="text-slate-900">Never pay retail again.</strong>
+              {t("about.hero.subtitle")} <strong className="text-slate-900">{t("about.hero.never")}</strong>
             </p>
           </FadeInView>
         </div>
@@ -54,8 +56,8 @@ export default function AboutPage() {
                   <FontAwesomeIcon icon={faQuoteLeft} size="lg" />
                 </div>
                 <div>
-                  <h2 className="text-2xl font-bold text-slate-800">Our Story</h2>
-                  <p className="text-slate-500 text-sm">Abraham Hamed &bull; Owner</p>
+                  <h2 className="text-2xl font-bold text-slate-800">{t("about.story.title")}</h2>
+                  <p className="text-slate-500 text-sm">{t("about.story.owner")}</p>
                 </div>
               </div>
               <div className="space-y-4 text-slate-600 leading-relaxed">
@@ -72,7 +74,7 @@ export default function AboutPage() {
       <section className="relative py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
-            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center mb-12">Take a Look Inside</h2>
+            <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 text-center mb-12">{t("about.gallery.title")}</h2>
           </FadeInView>
           <StaggerContainer className="columns-2 md:columns-3 lg:columns-4 gap-3 space-y-3" staggerDelay={0.04}>
             {galleryImages.map((img, i) => (
@@ -91,8 +93,8 @@ export default function AboutPage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Meet The Team</h2>
-              <p className="text-slate-500 text-lg">A crew of everyday people who believe saving money should actually be fun.</p>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">{t("about.team.title")}</h2>
+              <p className="text-slate-500 text-lg">{t("about.team.subtitle")}</p>
             </div>
           </FadeInView>
           <FadeInView delay={0.2}>
@@ -102,7 +104,7 @@ export default function AboutPage() {
                 alt="Abraham Hamed - Store Manager"
                 className="w-32 h-32 rounded-full object-cover mx-auto mb-4 border-4 border-slate-100 shadow-lg"
               />
-              <h3 className="text-2xl font-bold text-slate-800 mb-1">Abraham Hamed</h3>
+              <h3 className="text-2xl font-bold text-slate-800 mb-1">{t("about.team.name")}</h3>
               <p className="text-[var(--accent)] font-medium mb-4">Store Manager &amp; Local Legend</p>
               <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto">
                 Abraham isn&apos;t some corporate suit. He&apos;s a Memphis-based entrepreneur who knows what it means to build something from the ground up. With roots in retail and a passion for customer-first business, Abraham opened BSW Outlet to give people a smarter way to shop.
@@ -117,7 +119,7 @@ export default function AboutPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-12">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">Our Core Values</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">{t("about.values.title")}</h2>
             </div>
           </FadeInView>
           <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -141,9 +143,9 @@ export default function AboutPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInView>
             <div className="glass-strong rounded-2xl p-12">
-              <h2 className="text-3xl font-bold text-slate-900 mb-4">Come Experience the Difference</h2>
+              <h2 className="text-3xl font-bold text-slate-900 mb-4">{t("about.cta.title")}</h2>
               <p className="text-slate-600 mb-8">From the front registers to the back of the warehouse, we&apos;re a tight-knit team that&apos;s all about good energy, honest deals, and bringing something real to the community.</p>
-              <Link href="/contact" className="btn-primary"><FontAwesomeIcon icon={faBullseye} /> Get in Touch</Link>
+              <Link href="/contact" className="btn-primary"><FontAwesomeIcon icon={faBullseye} /> {t("about.cta.btn")}</Link>
             </div>
           </FadeInView>
         </div>

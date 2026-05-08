@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTag, faMapMarkerAlt, faPhone, faClock, faCalendarDay, faArrowRight, faCrown, faCheckCircle } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
+import { useT } from "@/i18n/context";
 
 const schedule = [
   { day: "Thursday", price: "$10", title: "$10 Thursday", tagline: "New deal day — fresh inventory!", desc: "Thursday is now a deal day! Fresh drops hit the floor with everything in the bins at $10. Best day to catch up on what you missed earlier in the week.", img: "deal-thu.png", active: true },
@@ -16,6 +17,7 @@ const schedule = [
 ];
 
 export default function WeeklyDealsPage() {
+  const t = useT();
   return (
     <div className="relative">
       <div className="orb w-[500px] h-[500px] bg-[#e63946] -top-40 -left-40" />
@@ -42,7 +44,7 @@ export default function WeeklyDealsPage() {
               <StaggerItem key={i}>
                 <div className={`glass-card p-6 md:p-8 relative overflow-hidden ${item.active ? "ring-2 ring-[var(--accent)]" : ""}`}>
                   {item.active && <div className="absolute top-4 right-4 bg-[var(--accent)] text-white text-xs font-bold px-3 py-1 rounded-full">TODAY</div>}
-                  <div className="glass-card overflow-hidden rounded-lg h-28 md:h-32 mb-4 -mx-2 -mt-2">
+                  <div className="overflow-hidden rounded-lg h-28 md:h-32 mb-4 -mx-2 -mt-2">
                     <img src={`/images/${item.img}`} alt={item.day} className="w-full h-full object-cover" />
                   </div>
                   <div className={`text-3xl font-bold mb-1 ${item.price === "Closed" ? "text-slate-400" : "text-gradient"}`}>{item.price}</div>

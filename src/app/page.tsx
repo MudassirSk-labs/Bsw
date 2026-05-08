@@ -19,16 +19,22 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
 import NewsletterSection from "@/components/NewsletterSection";
+import { useT } from "@/i18n/context";
 
 const schedule = [
-  { day: "Thursday", price: "$10", name: "$10 Thursday", desc: "New deal day! Fresh inventory + $10 pricing. Best day to catch up on what you missed.", img: "deal-thu.png", active: true },
-  { day: "Friday", price: "$8", name: "$8 Friday", desc: "Fresh drops + $8 pricing = certified win.", img: "deal-fri.jpg" },
-  { day: "Saturday", price: "$7", name: "$7 Saturday", desc: "Our biggest day. Brand new inventory. First dibs!", img: "deal-sat.jpg", active: true },
-  { day: "Sunday", price: "$5", name: "$5 Sunday", desc: "Weekend steals continue! Everything in the bins? Just $5.", img: "deal-sun.jpg" },
-  { day: "Monday", price: "$3", name: "Mystery Monday", desc: "You never know what you'll find. Fresh surprises. Wild finds.", img: "deal-mon.jpg" },
-  { day: "Tuesday", price: "$2", name: "$2 Tuesday", desc: "The bin hunt begins. Get here early and dig for gold.", img: "deal-tue.jpg" },
-  { day: "Wednesday", price: "$1", name: "$1 Wednesday", desc: "Last chance before reset. Everything drops to just $1.", img: "deal-wed.jpg" },
+  { key: "thu", price: "$10", img: "deal-thu.png", active: true },
+  { key: "fri", price: "$8", img: "deal-fri.jpg" },
+  { key: "sat", price: "$7", img: "deal-sat.jpg", active: true },
+  { key: "sun", price: "$5", img: "deal-sun.jpg" },
+  { key: "mon", price: "$3", img: "deal-mon.jpg" },
+  { key: "tue", price: "$2", img: "deal-tue.jpg" },
+  { key: "wed", price: "$1", img: "deal-wed.jpg" },
 ];
+
+const dayNames: Record<string, string> = {
+  thu: "Thursday", fri: "Friday", sat: "Saturday", sun: "Sunday",
+  mon: "Monday", tue: "Tuesday", wed: "Wednesday",
+};
 
 const testimonials = [
   { name: "Rodney Lyte", rating: 5, text: "Very nice things and very friendly staff. I really enjoyed myself shopping there.", platform: "Google" },
@@ -38,6 +44,7 @@ const testimonials = [
 
 export default function HomePage() {
   const [activeIndex, setActiveIndex] = useState(0);
+  const t = useT();
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -45,6 +52,8 @@ export default function HomePage() {
     }, 5000);
     return () => clearInterval(interval);
   }, []);
+
+  const sch = (k: string) => t(`home.schedule.${k}`);
 
   return (
     <div className="relative">
@@ -61,30 +70,32 @@ export default function HomePage() {
             <FadeInView direction="none">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-sm text-slate-600">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                Open Daily 10AM – 7PM
+                {t("home.hero.badge")}
               </div>
             </FadeInView>
             <FadeInView delay={0.1}>
               <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6">
-                <span className="text-slate-900">MEMPHIS&apos; #1</span>
+                <span className="text-slate-900">{t("home.hero.title1")}</span>
                 <br />
-                <span className="text-gradient">DISCOUNT BIN STORE</span>
+                <span className="text-gradient">{t("home.hero.title2")}</span>
               </h1>
             </FadeInView>
             <FadeInView delay={0.2}>
-              <p className="text-xl sm:text-2xl text-slate-600 mb-8 max-w-2xl">
-                Never pay retail again. Massive daily deals on electronics, home goods, tools, apparel &amp; more. New inventory weekly!
-              </p>
+              <p className="text-xl sm:text-2xl text-slate-600 mb-8 max-w-2xl">{t("home.hero.subtitle")}</p>
             </FadeInView>
             <FadeInView delay={0.3}>
               <div className="flex flex-wrap gap-4">
-                <Link href="/weekly-deals" className="btn-primary text-lg"><FontAwesomeIcon icon={faTag} /> This Week&apos;s Deals <FontAwesomeIcon icon={faChevronRight} /></Link>
-                <Link href="/about" className="btn-glass text-lg">Learn More <FontAwesomeIcon icon={faArrowRight} /></Link>
+                <Link href="/weekly-deals" className="btn-primary text-lg"><FontAwesomeIcon icon={faTag} /> {t("home.hero.cta")} <FontAwesomeIcon icon={faChevronRight} /></Link>
+                <Link href="/about" className="btn-glass text-lg">{t("home.hero.learn")} <FontAwesomeIcon icon={faArrowRight} /></Link>
               </div>
             </FadeInView>
           </div>
           <StaggerContainer className="grid grid-cols-2 sm:grid-cols-3 gap-4 mt-16 max-w-2xl">
-            {[{ icon: faBox, label: "New Drops", sub: "Every Week" }, { icon: faDollarSign, label: "Crazy Prices", sub: "Daily" }, { icon: faRunning, label: "First Come", sub: "First Served" }].map((stat, i) => (
+            {[
+              { icon: faBox, label: t("home.hero.stats.drops"), sub: t("home.hero.stats.dropsSub") },
+              { icon: faDollarSign, label: t("home.hero.stats.prices"), sub: t("home.hero.stats.pricesSub") },
+              { icon: faRunning, label: t("home.hero.stats.first"), sub: t("home.hero.stats.firstSub") },
+            ].map((stat, i) => (
               <StaggerItem key={i}>
                 <div className="glass-card p-5 text-center">
                   <FontAwesomeIcon icon={stat.icon} className="text-2xl text-[var(--accent)] mb-2" />
@@ -118,21 +129,21 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">Full Weekly Schedule</h2>
-              <p className="text-slate-500 text-lg max-w-2xl mx-auto">Every day is a new deal at BSW Outlet. Here&apos;s how the week breaks down.</p>
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">{t("home.schedule.title")}</h2>
+              <p className="text-slate-500 text-lg max-w-2xl mx-auto">{t("home.schedule.subtitle")}</p>
             </div>
           </FadeInView>
           <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4" staggerDelay={0.06}>
             {schedule.map((item, i) => (
               <StaggerItem key={i}>
                 <div className={`glass-card p-4 md:p-6 text-center ${item.active ? "ring-2 ring-[var(--accent)]" : ""}`}>
-                  <div className="glass-card overflow-hidden rounded-lg aspect-square mb-3 -mx-1 -mt-1">
-                    <img src={`/images/${item.img}`} alt={item.day} className="w-full h-full object-cover" />
+                  <div className="overflow-hidden rounded-lg mb-3 -mx-1 -mt-1">
+                    <img src={`/images/${item.img}`} alt={dayNames[item.key]} className="w-full h-auto object-contain" />
                   </div>
                   <div className={`text-2xl md:text-3xl font-bold mb-1 ${item.price === "Closed" ? "text-slate-400" : "text-gradient"}`}>{item.price}</div>
-                  <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider mb-1">{item.day}</div>
-                  <h3 className="text-slate-800 font-semibold text-sm md:text-lg mb-1 md:mb-2">{item.name}</h3>
-                  <p className="text-slate-500 text-xs md:text-sm leading-relaxed">{item.desc}</p>
+                  <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider mb-1">{t(`days.${dayNames[item.key].toLowerCase()}`)}</div>
+                  <h3 className="text-slate-800 font-semibold text-sm md:text-lg mb-1 md:mb-2">{sch(`${item.key}.name`)}</h3>
+                  <p className="text-slate-500 text-xs md:text-sm leading-relaxed">{sch(`${item.key}.desc`)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -161,9 +172,9 @@ export default function HomePage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">
                 <FontAwesomeIcon icon={faCrown} className="text-[#f4a261] mr-3" />
-                BSW VIP Club
+                {t("home.vip.title")}
               </h2>
-              <p className="text-slate-500 text-lg max-w-2xl mx-auto">Get the best deals before anyone else. Exclusive perks, early access, and more.</p>
+              <p className="text-slate-500 text-lg max-w-2xl mx-auto">{t("home.vip.subtitle")}</p>
             </div>
           </FadeInView>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
@@ -171,29 +182,29 @@ export default function HomePage() {
               <div className="glass-card p-8 md:p-10">
                 <div className="flex items-center gap-2 mb-4">
                   <FontAwesomeIcon icon={faCrown} className="text-[#f4a261] text-2xl" />
-                  <span className="text-sm uppercase tracking-widest text-slate-400 font-semibold">VIP MEMBERSHIP</span>
+                  <span className="text-sm uppercase tracking-widest text-slate-400 font-semibold">{t("home.vip.membership")}</span>
                 </div>
-                <h3 className="text-3xl font-bold text-slate-900 mb-2">Just <span className="text-[#f4a261]">$25</span>/month</h3>
+                <h3 className="text-3xl font-bold text-slate-900 mb-2">{t("home.vip.price")} <span className="text-[#f4a261]">$25</span>{t("home.vip.month")}</h3>
                 <p className="text-slate-500 mb-6">Unlock premium perks at both Memphis locations.</p>
                 <ul className="space-y-3">
-                  {["Early access to new inventory drops", "Exclusive VIP-only pricing on select items", "Priority checkout — skip the line", "Monthly bonus coupon worth $10", "Birthday surprise gift"].map((perk, i) => (
+                  {[0,1,2,3,4].map(i => (
                     <li key={i} className="flex items-start gap-3 text-slate-700">
                       <FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mt-1 shrink-0" />
-                      <span>{perk}</span>
+                      <span>{t(`home.vip.perks.${i}`)}</span>
                     </li>
                   ))}
                 </ul>
-                <Link href="/vip" className="btn-primary mt-8 inline-flex"><FontAwesomeIcon icon={faCrown} /> Learn More About VIP</Link>
+                <Link href="/vip" className="btn-primary mt-8 inline-flex"><FontAwesomeIcon icon={faCrown} /> {t("home.vip.cta")}</Link>
               </div>
             </FadeInView>
             <FadeInView direction="right" className="text-center">
               <div className="glass-card p-8">
                 <img src="/images/vip-hero.png" alt="VIP Club" className="w-full mb-4" />
-                <h4 className="text-lg font-bold text-slate-800 mb-2">How it works</h4>
-                <p className="text-slate-500 text-sm leading-relaxed">Sign up at either location. Your VIP card works at both Winchester and Summer Ave. Just show your card at checkout and enjoy the perks instantly.</p>
+                <h4 className="text-lg font-bold text-slate-800 mb-2">{t("home.vip.howItWorks")}</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">{t("home.vip.howDesc")}</p>
                 <div className="mt-6 pt-6 border-t border-slate-100">
                   <div className="text-2xl font-bold text-gradient">$25</div>
-                  <div className="text-sm text-slate-400">per month</div>
+                  <div className="text-sm text-slate-400">{t("home.vip.month")}</div>
                 </div>
               </div>
             </FadeInView>
@@ -220,19 +231,22 @@ export default function HomePage() {
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">Find Us In Memphis</h2>
-              <p className="text-slate-500 text-lg">The deals live here. You should too.</p>
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">{t("home.locations.title")}</h2>
+              <p className="text-slate-500 text-lg">{t("home.locations.subtitle")}</p>
             </div>
           </FadeInView>
           <StaggerContainer className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {[{ title: "BSW Outlet – Winchester", addr: "6777 Winchester Rd, Memphis, TN 38115", link: "https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/" }, { title: "BSW Outlet – Summer Ave", addr: "4224 Summer Ave, Memphis, TN 38122", link: "https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/" }].map((loc, i) => (
+            {[
+              { title: t("home.locations.winchester"), addr: "6777 Winchester Rd, Memphis, TN 38115" },
+              { title: t("home.locations.summer"), addr: "4224 Summer Ave, Memphis, TN 38122" },
+            ].map((loc, i) => (
               <StaggerItem key={i}>
                 <div className="glass-card p-8">
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0"><FontAwesomeIcon icon={faMapMarkerAlt} size="lg" /></div>
                     <div>
                       <h3 className="text-slate-800 font-bold text-xl mb-2">{loc.title}</h3>
-                      <a href={loc.link} target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[var(--accent)] transition-colors"><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-[var(--accent)]" />{loc.addr}</a>
+                      <a href="https://www.google.com/maps/search/bsw+outlet+memphis+tn+map/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[var(--accent)] transition-colors"><FontAwesomeIcon icon={faMapMarkerAlt} className="mr-2 text-[var(--accent)]" />{loc.addr}</a>
                     </div>
                   </div>
                 </div>
@@ -244,23 +258,23 @@ export default function HomePage() {
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0"><FontAwesomeIcon icon={faClock} size="lg" /></div>
                     <div>
-                      <p className="text-slate-800 font-semibold">Open Daily</p>
-                      <p className="text-slate-500 text-sm">10AM – 7PM</p>
-                      <p className="text-[var(--accent)] text-sm font-medium">$10 Thursdays!</p>
+                      <p className="text-slate-800 font-semibold">{t("home.locations.hours")}</p>
+                      <p className="text-slate-500 text-sm">{t("home.locations.hoursVal")}</p>
+                      <p className="text-[var(--accent)] text-sm font-medium">{t("home.locations.thuTag")}</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0"><FontAwesomeIcon icon={faPhone} size="lg" /></div>
                     <div>
-                      <p className="text-slate-800 font-semibold">Call Us</p>
+                      <p className="text-slate-800 font-semibold">{t("home.locations.call")}</p>
                       <a href="tel:+19016951857" className="text-slate-500 hover:text-[var(--accent)] text-sm transition-colors">(901) 695-1857</a>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="w-12 h-12 rounded-full bg-slate-100 flex items-center justify-center text-[var(--accent)] shrink-0"><FontAwesomeIcon icon={faStar} size="lg" /></div>
                     <div>
-                      <p className="text-slate-800 font-semibold">Memphis&apos; Best</p>
-                      <p className="text-slate-500 text-sm">Rated #1 bin store</p>
+                      <p className="text-slate-800 font-semibold">{t("home.locations.best")}</p>
+                      <p className="text-slate-500 text-sm">{t("home.locations.bestSub")}</p>
                     </div>
                   </div>
                 </div>
@@ -288,16 +302,16 @@ export default function HomePage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <div className="text-center mb-16">
-              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">What Memphis Is Saying</h2>
-              <p className="text-slate-500 text-lg">Don&apos;t take our word for it.</p>
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">{t("home.testimonials.title")}</h2>
+              <p className="text-slate-500 text-lg">{t("home.testimonials.subtitle")}</p>
             </div>
           </FadeInView>
           <div className="max-w-2xl mx-auto">
             <FadeInView key={activeIndex} delay={0.1}>
               <div className="glass-card p-8 text-center min-h-[200px]">
                 <div className="text-[var(--accent)] text-lg mb-3">{"★".repeat(testimonials[activeIndex].rating)}{"☆".repeat(5 - testimonials[activeIndex].rating)}</div>
-                <p className="text-slate-700 text-lg mb-6 italic">&ldquo;{testimonials[activeIndex].text}&rdquo;</p>
-                <p className="text-slate-800 font-semibold">{testimonials[activeIndex].name}</p>
+                <p className="text-slate-700 text-lg mb-6 italic">&ldquo;{t(`home.testimonials.items.${activeIndex}.text`)}&rdquo;</p>
+                <p className="text-slate-800 font-semibold">{t(`home.testimonials.items.${activeIndex}.name`)}</p>
                 <p className="text-slate-400 text-sm">{testimonials[activeIndex].platform}</p>
               </div>
             </FadeInView>
@@ -315,11 +329,11 @@ export default function HomePage() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInView>
             <div className="glass-strong rounded-2xl p-12 md:p-20">
-              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-6">Ready to Save Big?</h2>
-              <p className="text-slate-600 text-xl mb-8 max-w-2xl mx-auto">Don&apos;t pay full price ever again. Come dig, find, and win at BSW Outlet — Memphis&apos; #1 discount bin store.</p>
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-6">{t("home.cta.title")}</h2>
+              <p className="text-slate-600 text-xl mb-8 max-w-2xl mx-auto">{t("home.cta.subtitle")}</p>
               <div className="flex flex-wrap justify-center gap-4">
-                <Link href="/weekly-deals" className="btn-primary text-lg"><FontAwesomeIcon icon={faTag} /> See This Week&apos;s Deals</Link>
-                <a href="tel:+19016951857" className="btn-glass text-lg"><FontAwesomeIcon icon={faPhone} /> Call (901) 695-1857</a>
+                <Link href="/weekly-deals" className="btn-primary text-lg"><FontAwesomeIcon icon={faTag} /> {t("home.cta.btn")}</Link>
+                <a href="tel:+19016951857" className="btn-glass text-lg"><FontAwesomeIcon icon={faPhone} /> {t("home.cta.call")} (901) 695-1857</a>
               </div>
             </div>
           </FadeInView>

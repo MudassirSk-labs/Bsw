@@ -17,6 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
+import { useT } from "@/i18n/context";
 
 const VIP3DCard = lazy(() => import("@/components/VIP3DCard"));
 
@@ -36,6 +37,7 @@ const coupons = [
 ];
 
 export default function VIPPage() {
+  const t = useT();
   return (
     <div className="relative">
       <div className="orb w-[500px] h-[500px] bg-[#f4a261] -top-40 -right-40 opacity-[0.1]" />

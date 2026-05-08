@@ -17,6 +17,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
+import { useT } from "@/i18n/context";
 
 const categories = [
   { icon: faCouch, title: "Sofas & Couches", desc: "Sectionals, loveseats, reclining sofas — brand names at bin prices." },
@@ -28,6 +29,7 @@ const categories = [
 ];
 
 export default function FurniturePage() {
+  const t = useT();
   return (
     <div className="relative">
       <div className="orb w-[500px] h-[500px] bg-[#253998] -top-40 -left-40 opacity-[0.1]" />
