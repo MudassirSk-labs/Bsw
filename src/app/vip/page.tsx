@@ -1,5 +1,6 @@
 "use client";
 
+import { Suspense, lazy } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faCrown,
@@ -16,6 +17,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInView";
+
+const VIP3DCard = lazy(() => import("@/components/VIP3DCard"));
 
 const perks = [
   { icon: faStar, title: "Early Access", desc: "Get first dibs on new inventory drops before the general public." },
@@ -38,16 +41,78 @@ export default function VIPPage() {
       <div className="orb w-[500px] h-[500px] bg-[#f4a261] -top-40 -right-40 opacity-[0.1]" />
       <div className="orb w-[400px] h-[400px] bg-[#e63946] bottom-0 left-0 opacity-[0.08]" />
 
-      {/* HERO */}
-      <section className="relative py-12 md:py-20 bg-gradient-to-b from-white to-slate-50">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-          <FadeInView>
-            <img
-              src="/images/vip-hero.png"
-              alt="BSW VIP Club"
-              className="w-full max-w-[700px] mx-auto h-auto"
-            />
-          </FadeInView>
+      {/* HERO with 3D Card */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden bg-gradient-to-br from-[#0a0a1a] via-[#0f0f2e] to-[#1a0a2e]">
+        {/* Gradient orbs */}
+        <div className="orb w-[600px] h-[600px] bg-[#ffd700] top-0 left-0 opacity-[0.06]" />
+        <div className="orb w-[500px] h-[500px] bg-[#e63946] bottom-0 right-0 opacity-[0.05]" />
+
+        <div className="relative z-10 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+              {/* Text side */}
+              <FadeInView direction="left">
+                <div className="max-w-xl">
+                  <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#ffd700]/30 bg-[#ffd700]/5 text-[#ffd700] text-sm mb-6">
+                    <FontAwesomeIcon icon={faCrown} />
+                    PREMIUM MEMBERSHIP
+                  </div>
+                  <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6">
+                    <span className="text-white">BSW</span>
+                    <br />
+                    <span className="text-[#ffd700]">VIP Club</span>
+                  </h1>
+                  <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-lg">
+                    The VIP experience you deserve. Early access, exclusive pricing,
+                    bonus coupons, and a whole lot more — starting at just $25/month.
+                  </p>
+                  <div className="flex flex-wrap gap-4 mb-10">
+                    <a href="tel:+19016951857" className="btn-primary text-lg !bg-gradient-to-r !from-[#ffd700] !to-[#f4a261] !text-[#0a0a1a] !font-bold">
+                      <FontAwesomeIcon icon={faCrown} />
+                      Sign Up Now
+                    </a>
+                    <Link href="/contact" className="btn-glass text-lg !border-[#ffd700]/30 !text-slate-300">
+                      Visit a Location
+                      <FontAwesomeIcon icon={faArrowRight} />
+                    </Link>
+                  </div>
+                  {/* Stats */}
+                  <div className="flex gap-8 text-sm">
+                    <div>
+                      <div className="text-2xl font-bold text-[#ffd700]">$25</div>
+                      <div className="text-slate-500">per month</div>
+                    </div>
+                    <div className="w-px bg-slate-700/50" />
+                    <div>
+                      <div className="text-2xl font-bold text-[#ffd700]">6</div>
+                      <div className="text-slate-500">premium perks</div>
+                    </div>
+                    <div className="w-px bg-slate-700/50" />
+                    <div>
+                      <div className="text-2xl font-bold text-[#ffd700]">2</div>
+                      <div className="text-slate-500">locations</div>
+                    </div>
+                  </div>
+                </div>
+              </FadeInView>
+
+              {/* 3D Card side */}
+              <FadeInView direction="right">
+                <Suspense
+                  fallback={
+                    <div className="w-full h-[500px] md:h-[600px] rounded-2xl bg-gradient-to-br from-[#0a0a1a] via-[#0f0f2e] to-[#1a0a2e] flex items-center justify-center">
+                      <div className="text-center">
+                        <FontAwesomeIcon icon={faCrown} className="text-4xl text-[#ffd700] animate-pulse" />
+                        <p className="text-slate-500 mt-4 text-sm">Loading premium card...</p>
+                      </div>
+                    </div>
+                  }
+                >
+                  <VIP3DCard />
+                </Suspense>
+              </FadeInView>
+            </div>
+          </div>
         </div>
       </section>
 
