@@ -97,11 +97,18 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* SAVINGS IMAGE */}
-      <section className="relative py-12 bg-white">
+      {/* SAVINGS VIDEO */}
+      <section className="relative py-8 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
-            <img src="/images/savings-hero.png" alt="Never pay retail again at BSW Outlet" className="w-full max-w-[550px] mx-auto h-auto" />
+            <video
+              src="/images/bsw-featured.mp4"
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full max-w-[600px] mx-auto h-auto rounded-xl shadow-lg"
+            />
           </FadeInView>
         </div>
       </section>
