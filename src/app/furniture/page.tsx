@@ -43,31 +43,14 @@ export default function FurniturePage() {
       <div className="orb w-[400px] h-[400px] bg-[#e63946] bottom-0 right-0 opacity-[0.08]" />
 
       {/* HERO */}
-      <section className="relative py-24 md:py-36 bg-gradient-to-b from-white to-slate-50 bg-grid">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-slate-50/90" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-12 md:py-20 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-sm text-slate-600">
-              <FontAwesomeIcon icon={faStar} className="text-[var(--accent)]" />
-              New Furniture Drops Weekly
-            </div>
-            <h1 className="text-4xl sm:text-6xl font-bold text-slate-900 mb-4">
-              <span className="text-gradient">Furniture</span> Deals
-            </h1>
-            <p className="text-xl text-slate-600 mb-8 max-w-2xl mx-auto">
-              Sofas, chairs, tables, decor &amp; more — all at insane discount prices. 
-              Never pay retail for furniture again.
-            </p>
-            <div className="flex flex-wrap justify-center gap-4">
-              <a href="tel:+19016951857" className="btn-primary text-lg">
-                <FontAwesomeIcon icon={faPhone} />
-                Call (901) 695-1857
-              </a>
-              <Link href="/vip" className="btn-glass text-lg">
-                <FontAwesomeIcon icon={faTag} />
-                VIP Gets Extra 20% Off
-              </Link>
-            </div>
+            <img
+              src="/images/furniture-hero.svg"
+              alt="BSW Outlet Furniture"
+              className="w-full max-w-[700px] mx-auto h-auto"
+            />
           </FadeInView>
         </div>
       </section>

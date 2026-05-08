@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500">
+  <defs>
+    <linearGradient id="furnitureBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e0f2fe;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f0f9ff;stop-opacity:1" />
+    </linearGradient>
+    <filter id="fShadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="6" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+  <!-- Background -->
+  <rect width="800" height="500" fill="url(#furnitureBg)" rx="24"/>
+  <circle cx="680" cy="80" r="50" fill="#253998" opacity="0.06"/>
+  <circle cx="100" cy="420" r="70" fill="#e63946" opacity="0.05"/>
+  
+  <!-- Couch SVG -->
+  <g transform="translate(400, 170)" filter="url(#fShadow)">
+    <!-- Couch back -->
+    <rect x="-100" y="-30" width="200" height="80" rx="12" fill="#253998"/>
+    <!-- Couch seat -->
+    <rect x="-95" y="40" width="190" height="50" rx="10" fill="#3b5bdb"/>
+    <!-- Armrest left -->
+    <rect x="-115" y="-10" width="30" height="80" rx="8" fill="#1a3a8a"/>
+    <!-- Armrest right -->
+    <rect x="85" y="-10" width="30" height="80" rx="8" fill="#1a3a8a"/>
+    <!-- Couch legs -->
+    <rect x="-80" y="90" width="10" height="20" rx="3" fill="#94a3b8"/>
+    <rect x="70" y="90" width="10" height="20" rx="3" fill="#94a3b8"/>
+    <!-- Pillows -->
+    <rect x="-70" y="-20" width="55" height="50" rx="12" fill="#f4a261" opacity="0.8"/>
+    <rect x="15" y="-20" width="55" height="50" rx="12" fill="#f4a261" opacity="0.6"/>
+  </g>
+  
+  <!-- Stars -->
+  <text x="160" y="100" font-size="22" fill="#f4a261" opacity="0.6">★</text>
+  <text x="620" y="380" font-size="18" fill="#e63946" opacity="0.5">★</text>
+  <text x="180" y="420" font-size="16" fill="#253998" opacity="0.4">★</text>
+  
+  <!-- Tags -->
+  <g transform="translate(230, 340)">
+    <rect x="0" y="0" width="85" height="28" rx="14" fill="#e63946"/>
+    <text x="42" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Sofas</text>
+  </g>
+  <g transform="translate(330, 340)">
+    <rect x="0" y="0" width="85" height="28" rx="14" fill="#f4a261"/>
+    <text x="42" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Chairs</text>
+  </g>
+  <g transform="translate(430, 340)">
+    <rect x="0" y="0" width="95" height="28" rx="14" fill="#253998"/>
+    <text x="47" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Tables</text>
+  </g>
+  <g transform="translate(540, 340)">
+    <rect x="0" y="0" width="85" height="28" rx="14" fill="#e63946"/>
+    <text x="42" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Decor</text>
+  </g>
+  
+  <!-- Main text -->
+  <text x="400" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#1e293b">FURNITURE</text>
+  <text x="400" y="455" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#64748b">New Drops Every Week • Up to 80% Off Retail</text>
+</svg>

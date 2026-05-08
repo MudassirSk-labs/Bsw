@@ -39,23 +39,14 @@ export default function VIPPage() {
       <div className="orb w-[400px] h-[400px] bg-[#e63946] bottom-0 left-0 opacity-[0.08]" />
 
       {/* HERO */}
-      <section className="relative py-24 md:py-36 bg-gradient-to-b from-white to-slate-50 bg-grid">
-        <div className="absolute inset-0 bg-gradient-to-b from-white/90 to-slate-50/90" />
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <section className="relative py-12 md:py-20 bg-gradient-to-b from-white to-slate-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-sm text-slate-600">
-              <FontAwesomeIcon icon={faCrown} className="text-[#f4a261]" />
-              Limited Time Offer
-            </div>
-            <h1 className="text-4xl sm:text-6xl font-bold text-slate-900 mb-4">
-              BSW <span className="text-gradient-warm">VIP</span> Club
-            </h1>
-            <p className="text-xl text-slate-600 mb-3 max-w-2xl mx-auto">
-              Early access. Exclusive pricing. Discount coupons. And a whole lot of fun.
-            </p>
-            <p className="text-slate-500">
-              Just <strong className="text-[#f4a261] text-2xl">$25</strong> per month
-            </p>
+            <img
+              src="/images/vip-hero.svg"
+              alt="BSW VIP Club"
+              className="w-full max-w-[700px] mx-auto h-auto"
+            />
           </FadeInView>
         </div>
       </section>
