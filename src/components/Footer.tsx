@@ -133,6 +133,18 @@ export default function Footer() {
             </div>
             <div className="space-y-2 text-sm">
               <Link
+                href="/vip"
+                className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
+              >
+                VIP Club
+              </Link>
+              <Link
+                href="/furniture"
+                className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
+              >
+                Furniture
+              </Link>
+              <Link
                 href="/weekly-deals"
                 className="block text-slate-500 hover:text-[var(--accent)] transition-colors"
               >

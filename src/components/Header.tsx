@@ -13,12 +13,16 @@ import {
   faInfoCircle,
   faCalendarAlt,
   faEnvelope,
+  faCrown,
+  faCouch,
 } from "@fortawesome/free-solid-svg-icons";
 
 const navLinks = [
   { href: "/", label: "Home", icon: faHome },
   { href: "/about", label: "About", icon: faInfoCircle },
   { href: "/weekly-deals", label: "Weekly Deals", icon: faCalendarAlt },
+  { href: "/vip", label: "VIP Club", icon: faCrown },
+  { href: "/furniture", label: "Furniture", icon: faCouch },
   { href: "/contact", label: "Contact Us", icon: faEnvelope },
 ];
 
