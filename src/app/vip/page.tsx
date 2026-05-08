@@ -21,20 +21,8 @@ import { useT } from "@/i18n/context";
 
 const VIP3DCard = lazy(() => import("@/components/VIP3DCard"));
 
-const perks = [
-  { icon: faStar, title: "Early Access", desc: "Get first dibs on new inventory drops before the general public." },
-  { icon: faTag, title: "VIP-Only Pricing", desc: "Exclusive discounts on select items — only for VIP members." },
-  { icon: faGift, title: "$10 Monthly Coupon", desc: "A bonus coupon worth $10 every single month, just for being a member." },
-  { icon: faTicket, title: "Discount Coupons", desc: "Extra coupon bundles dropped throughout the month. Stack 'em and save!" },
-  { icon: faUsers, title: "Priority Checkout", desc: "Skip the line at both locations. You're VIP — you go first." },
-  { icon: faSmile, title: "Birthday Surprise", desc: "A special birthday gift on us. Because you deserve it." },
-];
-
-const coupons = [
-  { code: "VIP10", discount: "$10 OFF", min: "No minimum", desc: "Monthly VIP coupon — use on any purchase" },
-  { code: "VIP20", discount: "20% OFF", min: "On furniture items", desc: "Exclusive furniture discount for VIP members" },
-  { code: "BIRTHDAY", discount: "Free Gift", min: "With any purchase", desc: "Your birthday surprise — just show your ID" },
-];
+const perkIcons = [faStar, faTag, faGift, faTicket, faUsers, faSmile];
+const couponCodes = ["VIP10", "VIP20", "BIRTHDAY"];
 
 export default function VIPPage() {
   const t = useT();
@@ -57,24 +45,23 @@ export default function VIPPage() {
                 <div className="max-w-xl">
                   <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[#ffd700]/30 bg-[#ffd700]/5 text-[#ffd700] text-sm mb-6">
                     <FontAwesomeIcon icon={faCrown} />
-                    PREMIUM MEMBERSHIP
+                    {t("vip.hero.badge")}
                   </div>
                   <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold leading-tight mb-6">
-                    <span className="text-white">BSW</span>
+                    <span className="text-white">{t("vip.hero.title1")}</span>
                     <br />
-                    <span className="text-[#ffd700]">VIP Club</span>
+                    <span className="text-[#ffd700]">{t("vip.hero.title2")}</span>
                   </h1>
                   <p className="text-lg md:text-xl text-slate-400 mb-8 max-w-lg">
-                    The VIP experience you deserve. Early access, exclusive pricing,
-                    bonus coupons, and a whole lot more — starting at just $25/month.
+                    {t("vip.hero.subtitle")}
                   </p>
                   <div className="flex flex-wrap gap-4 mb-10">
                     <a href="tel:+19016951857" className="btn-primary text-lg !bg-gradient-to-r !from-[#ffd700] !to-[#f4a261] !text-[#0a0a1a] !font-bold">
                       <FontAwesomeIcon icon={faCrown} />
-                      Sign Up Now
+                      {t("vip.hero.cta")}
                     </a>
                     <Link href="/contact" className="btn-glass text-lg !border-[#ffd700]/30 !text-slate-300">
-                      Visit a Location
+                      {t("vip.hero.visit")}
                       <FontAwesomeIcon icon={faArrowRight} />
                     </Link>
                   </div>
@@ -82,17 +69,17 @@ export default function VIPPage() {
                   <div className="flex gap-8 text-sm">
                     <div>
                       <div className="text-2xl font-bold text-[#ffd700]">$25</div>
-                      <div className="text-slate-500">per month</div>
+                      <div className="text-slate-500">{t("vip.hero.month")}</div>
                     </div>
                     <div className="w-px bg-slate-700/50" />
                     <div>
                       <div className="text-2xl font-bold text-[#ffd700]">6</div>
-                      <div className="text-slate-500">premium perks</div>
+                      <div className="text-slate-500">{t("vip.hero.perks")}</div>
                     </div>
                     <div className="w-px bg-slate-700/50" />
                     <div>
                       <div className="text-2xl font-bold text-[#ffd700]">2</div>
-                      <div className="text-slate-500">locations</div>
+                      <div className="text-slate-500">{t("vip.hero.locations")}</div>
                     </div>
                   </div>
                 </div>
@@ -126,16 +113,12 @@ export default function VIPPage() {
               <div className="w-20 h-20 rounded-full bg-amber-100 flex items-center justify-center text-3xl mx-auto mb-4">
                 😄
               </div>
-              <h2 className="text-2xl font-bold text-slate-800 mb-2">
-                Meet Rafael — Your VIP Host
-              </h2>
-              <p className="text-slate-500 italic max-w-2xl mx-auto">
-                &ldquo;I make sure every VIP feels like family. Come say hi, grab a coupon, and let&apos;s find you a deal!&rdquo;
-              </p>
+              <h2 className="text-2xl font-bold text-slate-800 mb-2">{t("vip.rafael.title")}</h2>
+              <p className="text-slate-500 italic max-w-2xl mx-auto">&ldquo;{t("vip.rafael.quote")}&rdquo;</p>
               <div className="mt-6 flex flex-wrap justify-center gap-3 text-sm text-slate-500">
-                <span className="px-3 py-1 bg-slate-100 rounded-full">🎤 Ask about our daily jokes</span>
-                <span className="px-3 py-1 bg-slate-100 rounded-full">🎁 Rafael&apos;s mystery coupon drawer</span>
-                <span className="px-3 py-1 bg-slate-100 rounded-full">📸 Selfie with Rafael = extra deal</span>
+                {[0,1,2].map(i => (
+                  <span key={i} className="px-3 py-1 bg-slate-100 rounded-full">{t(`vip.rafael.tags.${i}`)}</span>
+                ))}
               </div>
             </div>
           </FadeInView>
@@ -148,22 +131,22 @@ export default function VIPPage() {
           <FadeInView>
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
-                <FontAwesomeIcon icon={faCrown} className="text-[#f4a261] mr-2" />
-                Everything You Get
+                <FontAwesomeIcon icon={faCrown} className="text-[var(--accent-gold)] mr-2" />
+                {t("vip.perks.title")}
               </h2>
-              <p className="text-slate-500 text-lg">Six VIP perks that make every visit better.</p>
+              <p className="text-slate-500 text-lg">{t("vip.perks.subtitle")}</p>
             </div>
           </FadeInView>
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {perks.map((perk, i) => (
+            {perkIcons.map((icon, i) => (
               <StaggerItem key={i}>
                 <div className="glass-card p-6 text-center">
-                  <div className="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center text-[#f4a261] mx-auto mb-4">
-                    <FontAwesomeIcon icon={perk.icon} size="xl" />
+                  <div className="w-14 h-14 rounded-full bg-amber-100 flex items-center justify-center text-[var(--accent-gold)] mx-auto mb-4">
+                    <FontAwesomeIcon icon={icon} size="xl" />
                   </div>
-                  <h3 className="text-slate-800 font-bold text-lg mb-2">{perk.title}</h3>
-                  <p className="text-slate-500 text-sm">{perk.desc}</p>
+                  <h3 className="text-slate-800 font-bold text-lg mb-2">{t(`vip.perks.items.${i}.title`)}</h3>
+                  <p className="text-slate-500 text-sm">{t(`vip.perks.items.${i}.desc`)}</p>
                 </div>
               </StaggerItem>
             ))}
@@ -178,22 +161,22 @@ export default function VIPPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-3">
                 <FontAwesomeIcon icon={faPercent} className="text-[var(--accent)] mr-2" />
-                VIP Discount Coupons
+                {t("vip.coupons.title")}
               </h2>
-              <p className="text-slate-500 text-lg">Every member gets access to exclusive coupon codes.</p>
+              <p className="text-slate-500 text-lg">{t("vip.coupons.subtitle")}</p>
             </div>
           </FadeInView>
 
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {coupons.map((coupon, i) => (
+            {couponCodes.map((code, i) => (
               <StaggerItem key={i}>
-                <div className="glass-card p-6 text-center border-t-4 border-[#f4a261]">
-                  <div className="text-3xl font-bold text-gradient mb-1">{coupon.discount}</div>
-                  <div className="text-sm text-slate-400 mb-3">{coupon.code}</div>
-                  <h3 className="text-slate-800 font-bold mb-1">{coupon.min}</h3>
-                  <p className="text-slate-500 text-sm">{coupon.desc}</p>
+                <div className="glass-card p-6 text-center border-t-4 border-[var(--accent-gold)]">
+                  <div className="text-3xl font-bold text-gradient mb-1">{t(`vip.coupons.items.${i}.discount`)}</div>
+                  <div className="text-sm text-slate-400 mb-3">{code}</div>
+                  <h3 className="text-slate-800 font-bold mb-1">{t(`vip.coupons.items.${i}.min`)}</h3>
+                  <p className="text-slate-500 text-sm">{t(`vip.coupons.items.${i}.desc`)}</p>
                   <div className="mt-4 pt-4 border-t border-slate-100">
-                    <span className="text-xs text-slate-400">Show this to Rafael at checkout</span>
+                    <span className="text-xs text-slate-400">{t("vip.coupons.footer")}</span>
                   </div>
                 </div>
               </StaggerItem>
@@ -209,39 +192,24 @@ export default function VIPPage() {
             <div className="glass-card p-10 md:p-12">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
                 <div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-4">
-                    We Have a Lot of Fun in the Store! 🎉
-                  </h2>
-                  <p className="text-slate-600 mb-6 leading-relaxed">
-                    BSW Outlet isn&apos;t just about crazy deals — it&apos;s about the experience. From the moment you
-                    walk in, you&apos;ll feel the energy. Music playing, customers laughing, Rafael cracking jokes
-                    at the register, and treasure hunters racing to find the next hidden gem.
-                  </p>
+                  <h2 className="text-3xl font-bold text-slate-900 mb-4">{t("vip.fun.title")}</h2>
+                  <p className="text-slate-600 mb-6 leading-relaxed">{t("vip.fun.desc")}</p>
                   <ul className="space-y-3">
-                    {[
-                      "Daily deal announcements over the speakers 🎤",
-                      "Friendly bin-hunting competitions between customers 🏆",
-                      "Rafael's famous mystery coupon drawer 🎁",
-                      "New inventory unboxings — be there when it drops! 📦",
-                      "Selfie wall — tag us for a chance to win a coupon 📸",
-                    ].map((item, i) => (
+                    {[0,1,2,3,4].map(i => (
                       <li key={i} className="flex items-start gap-3 text-slate-700">
                         <FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mt-1 shrink-0" />
-                        <span>{item}</span>
+                        <span>{t(`vip.fun.items.${i}`)}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
                 <div className="glass-card p-8 text-center">
                   <div className="text-5xl mb-4">😄</div>
-                  <h3 className="text-xl font-bold text-slate-800 mb-2">See You Soon!</h3>
-                  <p className="text-slate-500 text-sm leading-relaxed">
-                    Come for the deals, stay for the vibes. Rafael and the crew are
-                    waiting for you at both Memphis locations.
-                  </p>
+                  <h3 className="text-xl font-bold text-slate-800 mb-2">{t("vip.fun.cardTitle")}</h3>
+                  <p className="text-slate-500 text-sm leading-relaxed">{t("vip.fun.cardDesc")}</p>
                   <a href="tel:+19016951857" className="btn-primary mt-6 inline-flex">
                     <FontAwesomeIcon icon={faPhone} />
-                    Call (901) 695-1857
+                    {t("home.locations.call")} (901) 695-1857
                   </a>
                 </div>
               </div>
@@ -255,22 +223,18 @@ export default function VIPPage() {
         <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <FadeInView>
             <div className="glass-strong rounded-2xl p-12 md:p-16">
-              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">
-                Join the VIP Club Today
-              </h2>
+              <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 mb-4">{t("vip.cta.title")}</h2>
               <p className="text-slate-600 text-lg mb-2">
-                Just <strong className="text-[#f4a261]">$25/month</strong>
+                {t("weekly.vip.just")} <strong className="text-[var(--accent-gold)]">{t("vip.cta.price")}</strong>
               </p>
-              <p className="text-slate-500 mb-8">
-                Sign up at either location. Your VIP card works at both Winchester &amp; Summer Ave.
-              </p>
+              <p className="text-slate-500 mb-8">{t("vip.cta.desc")}</p>
               <div className="flex flex-wrap justify-center gap-4">
                 <a href="tel:+19016951857" className="btn-primary text-lg">
                   <FontAwesomeIcon icon={faCrown} />
-                  Sign Up — (901) 695-1857
+                  {t("vip.cta.btn")} — (901) 695-1857
                 </a>
                 <Link href="/contact" className="btn-glass text-lg">
-                  Visit Us Today
+                  {t("vip.cta.visit")}
                   <FontAwesomeIcon icon={faArrowRight} />
                 </Link>
               </div>

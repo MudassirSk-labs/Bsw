@@ -94,8 +94,11 @@ const es: Record<string, any> = {
       subtitle: "No solo nos creas a nosotros.",
       items: [
         { name: "Rodney Lyte", text: "Cosas muy buenas y personal muy amable. Realmente disfruté comprando allí.", platform: "Google" },
-        { name: "Sarah M.", text: "¡La mejor tienda de ofertas en Memphis! Encontré ofertas increíbles en electrónicos.", platform: "Google" },
-        { name: "James K.", text: "Las ofertas de $2 los martes son una locura. Siempre encuentro algo que vale mucho más.", platform: "Google" },
+        { name: "Patricia Dockery", text: "La mejor tienda de descuento del mundo BSW outlet 6777 Winchester y gente genial.", platform: "Google" },
+        { name: "Tewanda Williams", text: "Este lugar es increíble, mucha diversión para toda la familia y ofertas baratas.", platform: "Google" },
+        { name: "Antonio Smith", text: "Sin duda la mejor tienda de contenedores en Memphis y áreas circundantes.", platform: "Google" },
+        { name: "Elizabeth Blaylock", text: "Muy bien surtido, personal animado y divertido y muchas opciones de mercancía razonable.", platform: "Google" },
+        { name: "Yulissa Munguia", text: "Muy buen lugar y personas muy amables.", platform: "Google" },
       ],
     },
     cta: {

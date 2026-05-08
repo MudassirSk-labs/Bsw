@@ -61,9 +61,9 @@ export default function AboutPage() {
                 </div>
               </div>
               <div className="space-y-4 text-slate-600 leading-relaxed">
-                <p>This is Memphis&apos; outlet for saving money. No fancy showroom, no overpriced markups. Just bins, shelves, racks, and crazy deals. We move fast, flip inventory daily, and pack this warehouse with new stuff all the time.</p>
-                <p>At <strong className="text-slate-900">BSW Outlet</strong>, every visit is a chance to score something incredible at a price that doesn&apos;t make your wallet flinch. Whether you&apos;re after electronics, tools, home goods, or just love the thrill of the bin hunt, this is your spot.</p>
-                <p>You get <strong className="text-slate-900">new inventory weekly</strong>, <strong className="text-slate-900">deal days you won&apos;t believe</strong> ($1, $2, $5, $7), and a store full of people just like you. Ready to dig, find, and win.</p>
+                <p>{t("about.story.p1")}</p>
+                <p>{t("about.story.p2")}</p>
+                <p>{t("about.story.p3")}</p>
               </div>
             </div>
           </FadeInView>
@@ -105,10 +105,8 @@ export default function AboutPage() {
                 className="w-36 h-36 rounded-full object-cover mx-auto mb-4 border-4 border-[var(--blue)] shadow-xl"
               />
               <h3 className="text-2xl font-bold text-slate-800 mb-1">{t("about.team.name")}</h3>
-              <p className="text-[var(--accent)] font-medium mb-4">Store Manager &amp; Local Legend</p>
-              <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto">
-                Abraham isn&apos;t some corporate suit. He&apos;s a Memphis-based entrepreneur who knows what it means to build something from the ground up. With roots in retail and a passion for customer-first business, Abraham opened BSW Outlet to give people a smarter way to shop.
-              </p>
+              <p className="text-[var(--blue)] font-medium mb-4">{t("about.team.role")}</p>
+              <p className="text-slate-600 leading-relaxed max-w-2xl mx-auto">{t("about.team.desc")}</p>
             </div>
           </FadeInView>
         </div>
@@ -144,7 +142,7 @@ export default function AboutPage() {
           <FadeInView>
             <div className="glass-strong rounded-2xl p-12">
               <h2 className="text-3xl font-bold text-slate-900 mb-4">{t("about.cta.title")}</h2>
-              <p className="text-slate-600 mb-8">From the front registers to the back of the warehouse, we&apos;re a tight-knit team that&apos;s all about good energy, honest deals, and bringing something real to the community.</p>
+              <p className="text-slate-600 mb-8">{t("about.cta.subtitle")}</p>
               <Link href="/contact" className="btn-primary"><FontAwesomeIcon icon={faBullseye} /> {t("about.cta.btn")}</Link>
             </div>
           </FadeInView>
