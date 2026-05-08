@@ -21,13 +21,13 @@ import FadeInView, { StaggerContainer, StaggerItem } from "@/components/FadeInVi
 import NewsletterSection from "@/components/NewsletterSection";
 
 const schedule = [
-  { day: "Thursday", price: "$10", name: "$10 Thursday", desc: "New deal day! Fresh inventory + $10 pricing. Best day to catch up on what you missed.", active: true },
-  { day: "Friday", price: "$8", name: "$8 Friday", desc: "Fresh drops + $8 pricing = certified win." },
-  { day: "Saturday", price: "$7", name: "$7 Saturday", desc: "Our biggest day. Brand new inventory. First dibs!", active: true },
-  { day: "Sunday", price: "$5", name: "$5 Sunday", desc: "Weekend steals continue! Everything in the bins? Just $5." },
-  { day: "Monday", price: "$3", name: "Mystery Monday", desc: "You never know what you'll find. Fresh surprises. Wild finds." },
-  { day: "Tuesday", price: "$2", name: "$2 Tuesday", desc: "The bin hunt begins. Get here early and dig for gold." },
-  { day: "Wednesday", price: "$1", name: "$1 Wednesday", desc: "Last chance before reset. Everything drops to just $1." },
+  { day: "Thursday", price: "$10", name: "$10 Thursday", desc: "New deal day! Fresh inventory + $10 pricing. Best day to catch up on what you missed.", img: "deal-thu.png", active: true },
+  { day: "Friday", price: "$8", name: "$8 Friday", desc: "Fresh drops + $8 pricing = certified win.", img: "deal-fri.png" },
+  { day: "Saturday", price: "$7", name: "$7 Saturday", desc: "Our biggest day. Brand new inventory. First dibs!", img: "deal-sat.png", active: true },
+  { day: "Sunday", price: "$5", name: "$5 Sunday", desc: "Weekend steals continue! Everything in the bins? Just $5.", img: "deal-sun.png" },
+  { day: "Monday", price: "$3", name: "Mystery Monday", desc: "You never know what you'll find. Fresh surprises. Wild finds.", img: "deal-mon.png" },
+  { day: "Tuesday", price: "$2", name: "$2 Tuesday", desc: "The bin hunt begins. Get here early and dig for gold.", img: "deal-tue.png" },
+  { day: "Wednesday", price: "$1", name: "$1 Wednesday", desc: "Last chance before reset. Everything drops to just $1.", img: "deal-wed.png" },
 ];
 
 const testimonials = [
@@ -115,14 +115,17 @@ export default function HomePage() {
               <p className="text-slate-500 text-lg max-w-2xl mx-auto">Every day is a new deal at BSW Outlet. Here&apos;s how the week breaks down.</p>
             </div>
           </FadeInView>
-          <StaggerContainer className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4" staggerDelay={0.06}>
+          <StaggerContainer className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 md:gap-4" staggerDelay={0.06}>
             {schedule.map((item, i) => (
               <StaggerItem key={i}>
-                <div className={`glass-card p-6 text-center ${item.active ? "ring-2 ring-[var(--accent)]" : ""}`}>
-                  <div className={`text-3xl font-bold mb-1 ${item.price === "Closed" ? "text-slate-400" : "text-gradient"}`}>{item.price}</div>
-                  <div className="text-sm text-slate-400 uppercase tracking-wider mb-3">{item.day}</div>
-                  <h3 className="text-slate-800 font-semibold text-lg mb-2">{item.name}</h3>
-                  <p className="text-slate-500 text-sm">{item.desc}</p>
+                <div className={`glass-card p-4 md:p-6 text-center ${item.active ? "ring-2 ring-[var(--accent)]" : ""}`}>
+                  <div className="glass-card overflow-hidden rounded-lg aspect-square mb-3 -mx-1 -mt-1">
+                    <img src={`/images/${item.img}`} alt={item.day} className="w-full h-full object-cover" />
+                  </div>
+                  <div className={`text-2xl md:text-3xl font-bold mb-1 ${item.price === "Closed" ? "text-slate-400" : "text-gradient"}`}>{item.price}</div>
+                  <div className="text-xs md:text-sm text-slate-400 uppercase tracking-wider mb-1">{item.day}</div>
+                  <h3 className="text-slate-800 font-semibold text-sm md:text-lg mb-1 md:mb-2">{item.name}</h3>
+                  <p className="text-slate-500 text-xs md:text-sm leading-relaxed">{item.desc}</p>
                 </div>
               </StaggerItem>
             ))}
