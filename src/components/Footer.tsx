@@ -179,12 +179,12 @@ export default function Footer() {
           <p>
             &copy; {new Date().getFullYear()} BSW Outlet. {t("footer.rights")} &nbsp;|&nbsp; {t("footer.websiteBy")}{" "}
             <a
-              href="https://platformsandtraffic.com/"
+              href="https://www.amsitservices.com"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:text-[var(--accent)] transition-colors"
             >
-              Platforms &amp; Traffic
+              Mudassir
             </a>
           </p>
           <div className="flex gap-4">
