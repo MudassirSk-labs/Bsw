@@ -30,7 +30,7 @@ export default function Header() {
     <>
       {/* Notification Bar */}
       <div className="notification-bar">
-        <span>🎉 NEW LOCATION NOW OPEN — 4224 Summer Ave &nbsp;|&nbsp; BSW OUTLET</span>
+        <span>🎉 NEW LOCATION NOW OPEN — 4224 Summer Ave &nbsp;|&nbsp; $10 Thursdays! &nbsp;|&nbsp; BSW OUTLET</span>
       </div>
 
       {/* Navbar */}

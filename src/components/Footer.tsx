@@ -81,7 +81,7 @@ export default function Footer() {
               </div>
               <div className="flex justify-between">
                 <span>Thursday</span>
-                <span className="text-[var(--accent)] font-medium">Closed</span>
+                <span className="text-slate-800 font-medium">10AM – 7PM</span>
               </div>
               <div className="flex justify-between">
                 <span>Fri – Sun</span>

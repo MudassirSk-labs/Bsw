@@ -67,7 +67,7 @@ export default function ContactPage() {
                         <h3 className="text-slate-800 font-semibold">Store Hours</h3>
                         <div className="text-slate-500 space-y-1 mt-1">
                           <p>Mon – Wed: 10AM – 7PM</p>
-                          <p className="text-[var(--accent)] font-medium">Thursday: Closed (Restock Day)</p>
+                          <p className="text-[var(--accent)] font-medium">$10 Thursdays!</p>
                           <p>Fri – Sun: 10AM – 7PM</p>
                         </div>
                       </div>

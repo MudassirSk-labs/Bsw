@@ -12,6 +12,8 @@ import {
   faPhone,
   faChevronRight,
   faArrowRight,
+  faCrown,
+  faCheckCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -22,7 +24,7 @@ const schedule = [
   { day: "Monday", price: "$3", name: "Mystery Monday", desc: "You never know what you'll find. Fresh surprises. Wild finds." },
   { day: "Tuesday", price: "$2", name: "$2 Tuesday", desc: "The bin hunt begins. Get here early and dig for gold." },
   { day: "Wednesday", price: "$1", name: "$1 Wednesday", desc: "Last chance before reset. Everything drops to just $1." },
-  { day: "Thursday", price: "Closed", name: "Closed For Restock", desc: "We're restocking the bins and prepping for the weekend rush." },
+  { day: "Thursday", price: "$10", name: "$10 Thursday", desc: "New deal day! Fresh inventory + $10 pricing. Best day to catch up on what you missed.", active: true },
   { day: "Friday", price: "$8", name: "$8 Friday", desc: "Fresh drops + $8 pricing = certified win." },
   { day: "Saturday", price: "$7", name: "$7 Saturday", desc: "Our biggest day. Brand new inventory. First dibs!", active: true },
   { day: "Sunday", price: "$5", name: "$5 Sunday", desc: "Weekend steals continue! Everything in the bins? Just $5." },
@@ -64,7 +66,7 @@ export default function HomePage() {
             <FadeInView direction="none">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full glass mb-6 text-sm text-slate-600">
                 <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-                Open Daily 10AM – 7PM &bull; Closed Thursday
+                Open Daily 10AM – 7PM
               </div>
             </FadeInView>
 
@@ -165,6 +167,72 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== VIP SECTION ===== */}
+      <section className="relative py-24 bg-gradient-to-b from-slate-50 to-white">
+        <div className="orb w-[500px] h-[500px] bg-[#f4a261] top-0 right-0 opacity-[0.08]" />
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <FadeInView>
+            <div className="text-center mb-12">
+              <h2 className="text-3xl sm:text-5xl font-bold text-slate-900 mb-4">
+                <FontAwesomeIcon icon={faCrown} className="text-[#f4a261] mr-3" />
+                BSW VIP Club
+              </h2>
+              <p className="text-slate-500 text-lg max-w-2xl mx-auto">
+                Get the best deals before anyone else. Exclusive perks, early access, and more.
+              </p>
+            </div>
+          </FadeInView>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+            <FadeInView direction="left" className="md:col-span-2">
+              <div className="glass-card p-8 md:p-10">
+                <div className="flex items-center gap-2 mb-4">
+                  <FontAwesomeIcon icon={faCrown} className="text-[#f4a261] text-2xl" />
+                  <span className="text-sm uppercase tracking-widest text-slate-400 font-semibold">VIP MEMBERSHIP</span>
+                </div>
+                <h3 className="text-3xl font-bold text-slate-900 mb-2">
+                  Just <span className="text-[#f4a261]">$25</span>/month
+                </h3>
+                <p className="text-slate-500 mb-6">Unlock premium perks at both Memphis locations.</p>
+                <ul className="space-y-3">
+                  {[
+                    "Early access to new inventory drops",
+                    "Exclusive VIP-only pricing on select items",
+                    "Priority checkout — skip the line",
+                    "Monthly bonus coupon worth $10",
+                    "Birthday surprise gift",
+                  ].map((perk, i) => (
+                    <li key={i} className="flex items-start gap-3 text-slate-700">
+                      <FontAwesomeIcon icon={faCheckCircle} className="text-green-500 mt-1 shrink-0" />
+                      <span>{perk}</span>
+                    </li>
+                  ))}
+                </ul>
+                <a href="tel:+19016951857" className="btn-primary mt-8 inline-flex">
+                  <FontAwesomeIcon icon={faCrown} />
+                  Sign Up Today — (901) 695-1857
+                </a>
+              </div>
+            </FadeInView>
+
+            <FadeInView direction="right" className="text-center">
+              <div className="glass-card p-8">
+                <div className="text-5xl mb-4">💎</div>
+                <h4 className="text-lg font-bold text-slate-800 mb-2">How it works</h4>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  Sign up at either location. Your VIP card works at both Winchester and Summer Ave.
+                  Just show your card at checkout and enjoy the perks instantly.
+                </p>
+                <div className="mt-6 pt-6 border-t border-slate-100">
+                  <div className="text-2xl font-bold text-gradient">$25</div>
+                  <div className="text-sm text-slate-400">per month</div>
+                </div>
+              </div>
+            </FadeInView>
+          </div>
+        </div>
+      </section>
+
       {/* ===== NEWSLETTER ===== */}
       <NewsletterSection />
 
@@ -234,7 +302,7 @@ export default function HomePage() {
                     <div>
                       <p className="text-slate-800 font-semibold">Open Daily</p>
                       <p className="text-slate-500 text-sm">10AM – 7PM</p>
-                      <p className="text-[var(--accent)] text-sm font-medium">Closed Thursday</p>
+                      <p className="text-[var(--accent)] text-sm font-medium">$10 Thursdays!</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-4">
