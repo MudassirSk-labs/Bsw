@@ -11,10 +11,18 @@ import {
   faInstagram,
   faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
+import { faTag } from "@fortawesome/free-solid-svg-icons";
 import { useT } from "@/i18n/context";
 
 export default function Footer() {
   const t = useT();
+
+  const socialLinks = [
+    { href: "https://www.facebook.com/people/BSW-outlet/61575132308874/", icon: faFacebook, label: "Facebook" },
+    { href: "https://www.instagram.com/bswoutlet/", icon: faInstagram, label: "Instagram" },
+    { href: "https://www.tiktok.com/@bswoutlet", icon: faTiktok, label: "TikTok" },
+    { href: "https://whatnot.com/invite/bswoutlet", label: "Whatnot" },
+  ];
 
   return (
     <footer className="relative mt-auto border-t border-slate-200 bg-white">
@@ -132,6 +140,17 @@ export default function Footer() {
               >
                 <FontAwesomeIcon icon={faTiktok} size="lg" />
               </a>
+              <a
+                href="https://whatnot.com/invite/bswoutlet"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full bg-slate-100 flex items-center justify-center text-slate-500 hover:bg-[var(--accent)] hover:text-white transition-all"
+                aria-label="Whatnot"
+              >
+                <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5">
+                  <text x="50%" y="50%" textAnchor="middle" dominantBaseline="central" fontSize="14" fontWeight="bold" fill="currentColor">W</text>
+                </svg>
+              </a>
             </div>
             <div className="space-y-2 text-sm">
               <Link
@@ -187,7 +206,18 @@ export default function Footer() {
               Mudassir
             </a>
           </p>
-          <div className="flex gap-4">
+          <div className="flex items-center gap-4">
+            <a
+              href="https://whatnot.com/invite/bswoutlet"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 text-slate-400 hover:text-[var(--accent)] transition-colors"
+            >
+              <svg viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5">
+                <text x="50%" y="50%" textAnchor="middle" dominantBaseline="central" fontSize="14" fontWeight="bold" fill="currentColor">W</text>
+              </svg>
+              Whatnot
+            </a>
             <Link href="/terms" className="hover:text-[var(--accent)] transition-colors">
               {t("footer.terms")}
             </Link>
