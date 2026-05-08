@@ -26,7 +26,7 @@ export default function WeeklyDealsPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <img
-              src="/images/deals-hero.svg"
+              src="/images/deals-hero.png"
               alt="Weekly Deals at BSW Outlet"
               className="w-full max-w-[600px] mx-auto h-auto mb-8"
             />

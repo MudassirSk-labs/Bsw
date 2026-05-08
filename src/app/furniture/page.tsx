@@ -38,7 +38,7 @@ export default function FurniturePage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <img
-              src="/images/furniture-hero.svg"
+              src="/images/furniture-hero.png"
               alt="BSW Outlet Furniture"
               className="w-full max-w-[700px] mx-auto h-auto"
             />
@@ -106,14 +106,14 @@ export default function FurniturePage() {
             ))}
             <StaggerItem>
               <div className="glass-card p-6 flex flex-col items-center justify-center aspect-square text-center bg-gradient-to-br from-[#fef3c7] to-[#fde68a]">
-                <img src="/images/furniture-sofa.svg" alt="Sofas" className="w-20 h-16 mb-3" />
+                <img src="/images/furniture-sofa.png" alt="Sofas" className="w-20 h-16 mb-3" />
                 <p className="text-slate-800 font-bold text-lg">Sofas</p>
                 <p className="text-slate-500 text-xs">Starting at $15</p>
               </div>
             </StaggerItem>
             <StaggerItem>
               <div className="glass-card p-6 flex flex-col items-center justify-center aspect-square text-center bg-gradient-to-br from-[#dbeafe] to-[#bfdbfe]">
-                <img src="/images/furniture-sofa.svg" alt="Chairs" className="w-20 h-16 mb-3 scale-x-[-1]" />
+                <img src="/images/furniture-sofa.png" alt="Chairs" className="w-20 h-16 mb-3 scale-x-[-1]" />
                 <p className="text-slate-800 font-bold text-lg">Chairs</p>
                 <p className="text-slate-500 text-xs">Starting at $8</p>
               </div>

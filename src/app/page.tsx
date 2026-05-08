@@ -101,7 +101,7 @@ export default function HomePage() {
       <section className="relative py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
-            <img src="/images/savings-hero.svg" alt="Never pay retail again at BSW Outlet" className="w-full max-w-[550px] mx-auto h-auto" />
+            <img src="/images/savings-hero.png" alt="Never pay retail again at BSW Outlet" className="w-full max-w-[550px] mx-auto h-auto" />
           </FadeInView>
         </div>
       </section>
@@ -178,7 +178,7 @@ export default function HomePage() {
             </FadeInView>
             <FadeInView direction="right" className="text-center">
               <div className="glass-card p-8">
-                <img src="/images/vip-hero.svg" alt="VIP Club" className="w-full mb-4" />
+                <img src="/images/vip-hero.png" alt="VIP Club" className="w-full mb-4" />
                 <h4 className="text-lg font-bold text-slate-800 mb-2">How it works</h4>
                 <p className="text-slate-500 text-sm leading-relaxed">Sign up at either location. Your VIP card works at both Winchester and Summer Ave. Just show your card at checkout and enjoy the perks instantly.</p>
                 <div className="mt-6 pt-6 border-t border-slate-100">
@@ -198,7 +198,7 @@ export default function HomePage() {
       <section className="relative py-12 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
-            <img src="/images/bargain-bin.svg" alt="Fill your cart at BSW Outlet" className="w-full max-w-[500px] mx-auto h-auto" />
+            <img src="/images/bargain-bin.png" alt="Fill your cart at BSW Outlet" className="w-full max-w-[500px] mx-auto h-auto" />
           </FadeInView>
         </div>
       </section>

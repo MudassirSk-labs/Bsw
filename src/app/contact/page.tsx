@@ -16,7 +16,7 @@ export default function ContactPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <img
-              src="/images/storefront.svg"
+              src="/images/storefront.png"
               alt="BSW Outlet - Find us in Memphis"
               className="w-full max-w-[550px] mx-auto h-auto"
             />

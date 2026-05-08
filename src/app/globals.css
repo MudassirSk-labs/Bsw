@@ -17,6 +17,7 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
@@ -24,6 +25,16 @@ body {
   background: #f8fafc;
   color: #1e293b;
   min-height: 100vh;
+  overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
+}
+
+/* Force all page content to stay within viewport */
+#__next, main, .page-wrapper {
+  overflow-x: hidden;
+  max-width: 100vw;
 }
 
 /* ===== Glassmorphism Utilities ===== */
@@ -156,4 +167,19 @@ body {
   padding: 0.5rem 1rem;
   font-size: 0.85rem;
   font-weight: 500;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+  width: 100%;
+  max-width: 100vw;
+}
+
+.notification-bar span {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+}
+
+@keyframes marquee {
+  0% { transform: translateX(100%); }
+  100% { transform: translateX(-100%); }
 }

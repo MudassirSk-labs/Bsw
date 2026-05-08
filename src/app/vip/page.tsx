@@ -43,7 +43,7 @@ export default function VIPPage() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <FadeInView>
             <img
-              src="/images/vip-hero.svg"
+              src="/images/vip-hero.png"
               alt="BSW VIP Club"
               className="w-full max-w-[700px] mx-auto h-auto"
             />
